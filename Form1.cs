@@ -100,5 +100,30 @@ namespace Gambling
         {
             kostyButton.Image = Properties.Resources.kostya;
         }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            string videoPath = System.IO.Path.Combine(Application.StartupPath, "Resources", "red dice.mp4");
+
+            // Check if the video file exists before playing
+            if (System.IO.File.Exists(videoPath))
+            {
+                axWindowsMediaPlayer1.URL = videoPath;
+                axWindowsMediaPlayer1.windowlessVideo = true;
+                axWindowsMediaPlayer1.uiMode = "none";
+                axWindowsMediaPlayer1.Dock = DockStyle.Fill;
+
+                await Task.Delay(5000);
+
+                // Stop the video after 5 seconds
+                axWindowsMediaPlayer1.Ctlcontrols.stop();
+                axWindowsMediaPlayer1.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Video file not found: " + videoPath);
+            }
+        }
+
     }
 }

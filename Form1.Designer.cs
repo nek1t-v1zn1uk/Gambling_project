@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             slotyButton = new PictureBox();
             ruletkaButton = new PictureBox();
             kostyButton = new PictureBox();
+            axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)slotyButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ruletkaButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kostyButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             SuspendLayout();
             // 
             // slotyButton
@@ -81,22 +84,34 @@
             kostyButton.MouseLeave += kostyButton_MouseLeave;
             kostyButton.MouseUp += kostyButton_MouseUp;
             // 
+            // axWindowsMediaPlayer1
+            // 
+            axWindowsMediaPlayer1.Enabled = true;
+            axWindowsMediaPlayer1.Location = new Point(43, 511);
+            axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            axWindowsMediaPlayer1.OcxState = (AxHost.State)resources.GetObject("axWindowsMediaPlayer1.OcxState");
+            axWindowsMediaPlayer1.Size = new Size(75, 23);
+            axWindowsMediaPlayer1.TabIndex = 3;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1148, 565);
+            Controls.Add(axWindowsMediaPlayer1);
             Controls.Add(kostyButton);
             Controls.Add(ruletkaButton);
             Controls.Add(slotyButton);
             MinimumSize = new Size(300, 500);
             Name = "Form1";
             Text = "Gambling";
+            Load += Form1_Load;
             SizeChanged += Form1_Resize;
             Resize += Form1_Resize;
             ((System.ComponentModel.ISupportInitialize)slotyButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)ruletkaButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)kostyButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
             ResumeLayout(false);
         }
 
@@ -105,5 +120,6 @@
         private PictureBox slotyButton;
         private PictureBox ruletkaButton;
         private PictureBox kostyButton;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

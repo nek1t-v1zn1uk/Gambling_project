@@ -31,6 +31,7 @@
             slotyButton = new PictureBox();
             ruletkaButton = new PictureBox();
             kostyButton = new PictureBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)slotyButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ruletkaButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kostyButton).BeginInit();
@@ -81,11 +82,21 @@
             kostyButton.MouseLeave += kostyButton_MouseLeave;
             kostyButton.MouseUp += kostyButton_MouseUp;
             // 
+            // button1
+            // 
+            button1.Location = new Point(716, 42);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1148, 565);
+            Controls.Add(button1);
             Controls.Add(kostyButton);
             Controls.Add(ruletkaButton);
             Controls.Add(slotyButton);
@@ -105,5 +116,6 @@
         private PictureBox slotyButton;
         private PictureBox ruletkaButton;
         private PictureBox kostyButton;
+        private Button button1;
     }
 }

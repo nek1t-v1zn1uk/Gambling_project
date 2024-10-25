@@ -32,7 +32,9 @@
             slotyButton = new PictureBox();
             ruletkaButton = new PictureBox();
             kostyButton = new PictureBox();
+
             axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+
             ((System.ComponentModel.ISupportInitialize)slotyButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ruletkaButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kostyButton).BeginInit();
@@ -98,7 +100,9 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1148, 565);
+
             Controls.Add(axWindowsMediaPlayer1);
+
             Controls.Add(kostyButton);
             Controls.Add(ruletkaButton);
             Controls.Add(slotyButton);
@@ -120,6 +124,8 @@
         private PictureBox slotyButton;
         private PictureBox ruletkaButton;
         private PictureBox kostyButton;
+
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+
     }
 }

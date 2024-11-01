@@ -113,6 +113,16 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kosty_preview {
+            get {
+                object obj = ResourceManager.GetObject("kosty_preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kostya {
             get {
                 object obj = ResourceManager.GetObject("kostya", resourceCulture);
@@ -243,6 +253,16 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ruletka_preview {
+            get {
+                object obj = ResourceManager.GetObject("ruletka_preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings_buttons {
             get {
                 object obj = ResourceManager.GetObject("settings_buttons", resourceCulture);
@@ -276,6 +296,16 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap sloty_hovered {
             get {
                 object obj = ResourceManager.GetObject("sloty_hovered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sloty_preview {
+            get {
+                object obj = ResourceManager.GetObject("sloty_preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

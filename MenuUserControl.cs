@@ -39,14 +39,9 @@ namespace Gambling
             kostyButton.Size = new Size(w, h);
             kostyButton.Location = new Point(x, y + 2 * (h + p));
 
-            //тимчасово!
-            //
-            //
             pictureBox1.Size = new Size((int)(Width / 4.266), (int)(Height / 1.815));
             pictureBox1.Location = new Point((int)(Width / 1.525), (Height - pictureBox1.Height) / 2);
-            //
-            //
-            //
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)

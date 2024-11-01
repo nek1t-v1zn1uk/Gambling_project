@@ -45,6 +45,16 @@ namespace Gambling
             mainForm.setUserControl(new MenuUserControl(Size, mainForm));
         }
 
+        private void rakhunokButton_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void settingsButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            mainForm.setUserControl(new SettingsUserControl(Size, mainForm));
+        }
+
         private void exitButton_MouseClick(object sender, MouseEventArgs e)
         {
             mainForm.Close();
@@ -116,5 +126,6 @@ namespace Gambling
         {
             exitButton.Image = Properties.Resources.vihid;
         }
+        
     }
 }

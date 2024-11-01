@@ -42,6 +42,7 @@
             axWindowsMediaPlayer1.OcxState = (AxHost.State)resources.GetObject("axWindowsMediaPlayer1.OcxState");
             axWindowsMediaPlayer1.Size = new Size(75, 23);
             axWindowsMediaPlayer1.TabIndex = 3;
+            axWindowsMediaPlayer1.Visible = false;
             // 
             // MainPanel
             // 

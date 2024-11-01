@@ -66,6 +66,7 @@
             settingsButton.SizeMode = PictureBoxSizeMode.Zoom;
             settingsButton.TabIndex = 10;
             settingsButton.TabStop = false;
+            settingsButton.MouseClick += settingsButton_MouseClick;
             settingsButton.MouseDown += settingsButton_MouseDown;
             settingsButton.MouseEnter += settingsButton_MouseEnter;
             settingsButton.MouseLeave += settingsButton_MouseLeave;
@@ -82,6 +83,7 @@
             rakhunokButton.SizeMode = PictureBoxSizeMode.Zoom;
             rakhunokButton.TabIndex = 9;
             rakhunokButton.TabStop = false;
+            rakhunokButton.MouseClick += rakhunokButton_MouseClick;
             rakhunokButton.MouseDown += rakhunokButton_MouseDown;
             rakhunokButton.MouseEnter += rakhunokButton_MouseEnter;
             rakhunokButton.MouseLeave += rakhunokButton_MouseLeave;

@@ -47,6 +47,11 @@
             kostyButton.SizeMode = PictureBoxSizeMode.Zoom;
             kostyButton.TabIndex = 5;
             kostyButton.TabStop = false;
+            kostyButton.MouseClick += kostyButton_MouseClick;
+            kostyButton.MouseDown += kostyButton_MouseDown;
+            kostyButton.MouseEnter += kostyButton_MouseEnter;
+            kostyButton.MouseLeave += kostyButton_MouseLeave;
+            kostyButton.MouseUp += kostyButton_MouseUp;
             // 
             // ruletkaButton
             // 
@@ -59,6 +64,11 @@
             ruletkaButton.SizeMode = PictureBoxSizeMode.Zoom;
             ruletkaButton.TabIndex = 4;
             ruletkaButton.TabStop = false;
+            ruletkaButton.MouseClick += ruletkaButton_MouseClick;
+            ruletkaButton.MouseDown += ruletkaButton_MouseDown;
+            ruletkaButton.MouseEnter += ruletkaButton_MouseEnter;
+            ruletkaButton.MouseLeave += ruletkaButton_MouseLeave;
+            ruletkaButton.MouseUp += ruletkaButton_MouseUp;
             // 
             // slotyButton
             // 

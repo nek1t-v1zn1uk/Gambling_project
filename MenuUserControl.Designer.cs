@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             kostyButton = new PictureBox();
             ruletkaButton = new PictureBox();
             slotyButton = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)kostyButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ruletkaButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)slotyButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // kostyButton
@@ -87,12 +91,29 @@
             slotyButton.MouseLeave += slotyButton_MouseLeave;
             slotyButton.MouseUp += slotyButton_MouseUp;
             // 
+            // timer1
+            // 
+            timer1.Interval = 20;
+            timer1.Tick += timer1_Tick;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Location = new Point(730, 150);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(308, 351);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            pictureBox1.Visible = false;
+            // 
             // MenuUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.background_2;
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(pictureBox1);
             Controls.Add(kostyButton);
             Controls.Add(ruletkaButton);
             Controls.Add(slotyButton);
@@ -102,6 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)kostyButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)ruletkaButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)slotyButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -110,5 +132,7 @@
         private PictureBox kostyButton;
         private PictureBox ruletkaButton;
         private PictureBox slotyButton;
+        private System.Windows.Forms.Timer timer1;
+        private PictureBox pictureBox1;
     }
 }

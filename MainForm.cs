@@ -2,6 +2,8 @@ namespace Gambling
 {
     public partial class MainForm : Form
     {
+        public bool isMusic = true;
+        public bool isSound = true;
         public MainForm()
         {
             InitializeComponent();

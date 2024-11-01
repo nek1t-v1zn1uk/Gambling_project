@@ -29,97 +29,51 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            kostyButton = new PictureBox();
             axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            ruletkaButton = new PictureBox();
-            slotyButton = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)kostyButton).BeginInit();
+            MainPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ruletkaButton).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)slotyButton).BeginInit();
             SuspendLayout();
-            // 
-            // kostyButton
-            // 
-            kostyButton.Anchor = AnchorStyles.None;
-            kostyButton.Image = Properties.Resources.kostya;
-            kostyButton.Location = new Point(411, 421);
-            kostyButton.Name = "kostyButton";
-            kostyButton.Size = new Size(300, 113);
-            kostyButton.SizeMode = PictureBoxSizeMode.Zoom;
-            kostyButton.TabIndex = 2;
-            kostyButton.TabStop = false;
-            kostyButton.MouseDown += kostyButton_MouseDown;
-            kostyButton.MouseEnter += kostyButton_MouseEnter;
-            kostyButton.MouseLeave += kostyButton_MouseLeave;
-            kostyButton.MouseUp += kostyButton_MouseUp;
             // 
             // axWindowsMediaPlayer1
             // 
             axWindowsMediaPlayer1.Enabled = true;
-            axWindowsMediaPlayer1.Location = new Point(43, 511);
+            axWindowsMediaPlayer1.Location = new Point(126, 382);
             axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             axWindowsMediaPlayer1.OcxState = (AxHost.State)resources.GetObject("axWindowsMediaPlayer1.OcxState");
             axWindowsMediaPlayer1.Size = new Size(75, 23);
             axWindowsMediaPlayer1.TabIndex = 3;
             // 
-            // ruletkaButton
+            // MainPanel
             // 
-            ruletkaButton.Anchor = AnchorStyles.None;
-            ruletkaButton.Image = Properties.Resources.ruletka;
-            ruletkaButton.Location = new Point(411, 302);
-            ruletkaButton.Name = "ruletkaButton";
-            ruletkaButton.Size = new Size(300, 113);
-            ruletkaButton.SizeMode = PictureBoxSizeMode.Zoom;
-            ruletkaButton.TabIndex = 1;
-            ruletkaButton.TabStop = false;
-            ruletkaButton.MouseDown += ruletkaButton_MouseDown;
-            ruletkaButton.MouseEnter += ruletkaButton_MouseEnter;
-            ruletkaButton.MouseLeave += ruletkaButton_MouseLeave;
-            ruletkaButton.MouseUp += ruletkaButton_MouseUp;
-            // 
-            // slotyButton
-            // 
-            slotyButton.Anchor = AnchorStyles.None;
-            slotyButton.Image = Properties.Resources.vihid_hovered;
-            slotyButton.Location = new Point(411, 183);
-            slotyButton.Name = "slotyButton";
-            slotyButton.Size = new Size(300, 113);
-            slotyButton.SizeMode = PictureBoxSizeMode.Zoom;
-            slotyButton.TabIndex = 0;
-            slotyButton.TabStop = false;
-            slotyButton.MouseDown += slotyButton_MouseDown;
-            slotyButton.MouseEnter += slotyButton_MouseEnter;
-            slotyButton.MouseLeave += slotyButton_MouseLeave;
-            slotyButton.MouseUp += slotyButton_MouseUp;
+            MainPanel.BackgroundImage = Properties.Resources.background_2;
+            MainPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            MainPanel.Location = new Point(424, 153);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new Size(250, 125);
+            MainPanel.TabIndex = 7;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1148, 565);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1114, 500);
             Controls.Add(axWindowsMediaPlayer1);
-            Controls.Add(kostyButton);
-            Controls.Add(ruletkaButton);
-            Controls.Add(slotyButton);
+            Controls.Add(MainPanel);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             MinimumSize = new Size(300, 500);
             Name = "MainForm";
             Text = "Gambling";
-            Load += Form1_Load;
-            SizeChanged += Form1_Resize;
-            Resize += Form1_Resize;
-            ((System.ComponentModel.ISupportInitialize)kostyButton).EndInit();
+            WindowState = FormWindowState.Maximized;
+            Shown += MainForm_Shown;
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ruletkaButton).EndInit();
-            ((System.ComponentModel.ISupportInitialize)slotyButton).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private PictureBox kostyButton;
 
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private PictureBox ruletkaButton;
-        private PictureBox slotyButton;
+        private Panel MainPanel;
     }
 }

@@ -93,7 +93,7 @@ namespace Gambling
 
         private void slotyButton_MouseClick(object sender, MouseEventArgs e)
         {
-            mainForm.setUserControl(new MainUserControl(Size, mainForm));
+            mainForm.setUserControl(new SlotyUserControl(Size, mainForm));
         }
 
         private void ruletkaButton_MouseClick(object sender, MouseEventArgs e)
@@ -103,7 +103,7 @@ namespace Gambling
 
         private void kostyButton_MouseClick(object sender, MouseEventArgs e)
         {
-
+            mainForm.setUserControl(new MainUserControl(Size, mainForm));
         }
 
 

@@ -83,6 +83,36 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background_slots {
+            get {
+                object obj = ResourceManager.GetObject("background_slots", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Banana_Slot {
+            get {
+                object obj = ResourceManager.GetObject("Banana_Slot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cherry_Slot {
+            get {
+                object obj = ResourceManager.GetObject("Cherry_Slot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gambling {
             get {
                 object obj = ResourceManager.GetObject("gambling", resourceCulture);
@@ -106,6 +136,16 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap gambling_hovered {
             get {
                 object obj = ResourceManager.GetObject("gambling_hovered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Grape_Slot {
+            get {
+                object obj = ResourceManager.GetObject("Grape_Slot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +193,36 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap krutity {
+            get {
+                object obj = ResourceManager.GetObject("krutity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap krutity_clicked {
+            get {
+                object obj = ResourceManager.GetObject("krutity_clicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap krutity_hovered {
+            get {
+                object obj = ResourceManager.GetObject("krutity_hovered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nalashtuvanya {
             get {
                 object obj = ResourceManager.GetObject("nalashtuvanya", resourceCulture);
@@ -186,6 +256,16 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap no_sound {
             get {
                 object obj = ResourceManager.GetObject("no_sound", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Orange_Slot {
+            get {
+                object obj = ResourceManager.GetObject("Orange_Slot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,6 +353,26 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap slots_bars {
+            get {
+                object obj = ResourceManager.GetObject("slots_bars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slots_bars_2 {
+            get {
+                object obj = ResourceManager.GetObject("slots_bars_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sloty {
             get {
                 object obj = ResourceManager.GetObject("sloty", resourceCulture);
@@ -346,6 +446,16 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap vihid_hovered {
             get {
                 object obj = ResourceManager.GetObject("vihid_hovered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Watermelon_Slot {
+            get {
+                object obj = ResourceManager.GetObject("Watermelon_Slot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

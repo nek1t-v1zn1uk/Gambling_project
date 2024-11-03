@@ -30,6 +30,7 @@
         {
             sloty = new PictureBox();
             krutytyButton = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)sloty).BeginInit();
             ((System.ComponentModel.ISupportInitialize)krutytyButton).BeginInit();
             SuspendLayout();
@@ -60,12 +61,22 @@
             krutytyButton.MouseLeave += krutytyButton_MouseLeave;
             krutytyButton.MouseUp += krutytyButton_MouseUp;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(42, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(18, 20);
+            label1.TabIndex = 2;
+            label1.Text = "#";
+            // 
             // SlotyUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.background_slots;
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(label1);
             Controls.Add(krutytyButton);
             Controls.Add(sloty);
             DoubleBuffered = true;
@@ -74,11 +85,13 @@
             ((System.ComponentModel.ISupportInitialize)sloty).EndInit();
             ((System.ComponentModel.ISupportInitialize)krutytyButton).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox sloty;
         private PictureBox krutytyButton;
+        private Label label1;
     }
 }

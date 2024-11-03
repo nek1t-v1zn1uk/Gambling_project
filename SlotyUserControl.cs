@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics;
 
 namespace Gambling
 {
@@ -20,6 +22,9 @@ namespace Gambling
         private Random random = new Random();
 
         private int time = 0, koef = 1, speed = 100;
+        private int yy = -183;
+
+        private Image[] fruits = new Image[4];
 
 
         public SlotyUserControl(Size size, MainForm form)
@@ -34,6 +39,12 @@ namespace Gambling
 
         public void Load()
         {
+
+            fruits[0] = new Bitmap(Properties.Resources.Banana_Slot, new Size(153, 89)); 
+            fruits[1] = new Bitmap(Properties.Resources.Orange_Slot, new Size(153, 89));
+            fruits[2] = new Bitmap(Properties.Resources.Cherry_Slot, new Size(153, 89));
+            fruits[3] = new Bitmap(Properties.Resources.Watermelon_Slot, new Size(153, 89));
+
             sloty.Location = new Point((int)(Width / 5.333), (int)(Height / 26.341));
             sloty.Size = new Size((int)(Width / 1.6), (int)(Width / 2.4));
 
@@ -52,10 +63,7 @@ namespace Gambling
                 baraban2.Add((byte)random.Next(1, 5));
                 baraban3.Add((byte)random.Next(1, 5));
             }
-        }
 
-        public async void spin()
-        {
             baraban1.Clear();
             baraban2.Clear();
             baraban3.Clear();
@@ -66,35 +74,71 @@ namespace Gambling
                 baraban2.Add((byte)random.Next(1, 5));
                 baraban3.Add((byte)random.Next(1, 5));
             }
-            int yy = -183;
-            time = 0;
+
             using (Graphics g = Graphics.FromImage(sloty.Image))
             {
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                
-                while (speed>0) {
-                    g.Clear(Color.Transparent);
+                g.Clear(Color.Transparent);
 
-                    //yy = time * speed - koef * 183;
-                    yy += speed;
-                    for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 4; i++)
+                {
+                    g.DrawImage(fruits[baraban1[i] - 1], x, y + yy + i * 183, 307, 179);
+                    g.DrawImage(fruits[baraban2[i] - 1], x + 311, y + yy + i * 183, 307, 179);
+                    g.DrawImage(fruits[baraban3[i] - 1], x + 622, y + yy + i * 183, 307, 179);
+                }
+                //рамка
+                g.DrawImage(Properties.Resources.slots_bars_2, 0, 0, sloty.Width, sloty.Height);
+            }
+
+        }
+
+
+        public async void spin()
+        {
+            yy = -183;
+            time = 0;
+            koef = 1;
+            speed = 100;
+            Stopwatch stopwatch = new Stopwatch();
+
+            Bitmap bufferImage = new Bitmap(sloty.Width, sloty.Height);
+            using (Graphics g = Graphics.FromImage(bufferImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Bilinear;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+
+                while (speed > 0)
+                {
+                    stopwatch.Restart();
+
+                    await Task.Run(() =>
                     {
-                        g.DrawImage(getImage(baraban1[i]), x      , y + yy + i * 183, 307, 179);
-                        g.DrawImage(getImage(baraban2[i]), x + 311, y + yy + i * 183, 307, 179);
-                        g.DrawImage(getImage(baraban3[i]), x + 622, y + yy + i * 183, 307, 179);
+                        g.Clear(Color.Transparent);
 
-                    }
+                        yy += speed;
+                        for (int i = 0; i < 4; i++)
+                        {
+                            g.DrawImage(fruits[baraban1[i] - 1], x, y + yy + i * 183, 307, 179);
+                            g.DrawImage(fruits[baraban2[i] - 1], x + 311, y + yy + i * 183, 307, 179);
+                            g.DrawImage(fruits[baraban3[i] - 1], x + 622, y + yy + i * 183, 307, 179);
 
+                        }
+                    });
 
                     //рамка
                     g.DrawImage(Properties.Resources.slots_bars_2, 0, 0, sloty.Width, sloty.Height);
 
-                    await Task.Delay(16);
+                    sloty.Image = (Bitmap)bufferImage.Clone();
                     sloty.Invalidate();
+
+                    //await Task.Delay(16);
                     time++;
-                    speed-=2;
-                    if (yy>=0)
+                    speed -= 2;
+                    if (speed <= 0)
+                        speed = 1;
+                    if (yy >= 0)
                     {
+                        if (speed == 1)
+                            speed = 0;
                         yy = -183;
                         koef++;
                         baraban1.RemoveAt(3);
@@ -104,6 +148,15 @@ namespace Gambling
                         baraban2.Insert(0, (byte)random.Next(1, 5));
                         baraban3.Insert(0, (byte)random.Next(1, 5));
                     }
+
+                    stopwatch.Stop();
+                    int elapsed = (int)stopwatch.ElapsedMilliseconds;
+                    int delayTime = 60 - elapsed;
+                    if (delayTime > 0)
+                    {
+                        await Task.Delay(delayTime);
+                    }
+                    label1.Text = label1.Text + " " + elapsed;
                 }
             }
         }
@@ -111,18 +164,6 @@ namespace Gambling
         private void krutytyButton_MouseClick(object sender, MouseEventArgs e)
         {
             spin();
-        }
-
-        private static Image getImage(byte n)
-        {
-            switch (n)
-            {
-                case 1: return Properties.Resources.Banana_Slot;
-                case 2: return Properties.Resources.Orange_Slot;
-                case 3: return Properties.Resources.Cherry_Slot;
-                case 4: return Properties.Resources.Watermelon_Slot;
-                default: return null;
-            }
         }
 
 
@@ -143,5 +184,6 @@ namespace Gambling
         {
             krutytyButton.Image = Properties.Resources.krutity;
         }
+
     }
 }

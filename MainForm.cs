@@ -30,11 +30,12 @@ namespace Gambling
             MainPanel.Location = new Point(0, 0);
             MainPanel.Size = ClientSize;
             MainUserControl control = new MainUserControl(MainPanel.Size, this);
+            //SlotyUserControl control = new SlotyUserControl(MainPanel.Size, this);
             MainPanel.Controls.Add(control);
 
 
             //string videoPath = System.IO.Path.Combine(Application.StartupPath, "Resources", "red dice.mp4");
-            
+
             //// Check if the video file exists before playing
             //if (System.IO.File.Exists(videoPath))
             //{
@@ -54,6 +55,8 @@ namespace Gambling
             //{
             //    MessageBox.Show("Video file not found: " + videoPath);
             //}
+
+            axWindowsMediaPlayer1.Dispose();
         }
     }
 }

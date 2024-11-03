@@ -21,6 +21,7 @@ namespace Gambling
             MainPanel.Controls.Add(control);
             MainPanel.ResumeLayout();
             backButton.Visible = true;
+            MainPanel.Controls[0].Focus();
         }
 
 
@@ -64,7 +65,7 @@ namespace Gambling
             axWindowsMediaPlayer1.Dispose();
         }
 
-        private void backButton_MouseClick(object sender, MouseEventArgs e)
+        public void backButton_MouseClick(object sender, MouseEventArgs e)
         {
             if (MainPanel.Controls[0] is MenuUserControl || MainPanel.Controls[0] is SettingsUserControl)
             {

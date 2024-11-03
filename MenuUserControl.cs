@@ -178,5 +178,12 @@ namespace Gambling
             timer1.Start();
         }
 
+        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                mainForm.backButton_MouseClick(null, null);
+            }
+        }
     }
 }

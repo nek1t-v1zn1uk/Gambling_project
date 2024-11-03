@@ -44,7 +44,7 @@ namespace Gambling
 
         public void Load()
         {
-            fruits[0] = new Bitmap(Properties.Resources.Banana_Slot, new Size(sizeX, sizeY)); 
+            fruits[0] = new Bitmap(Properties.Resources.Banana_Slot, new Size(sizeX, sizeY));
             fruits[1] = new Bitmap(Properties.Resources.Orange_Slot, new Size(sizeX, sizeY));
             fruits[2] = new Bitmap(Properties.Resources.Cherry_Slot, new Size(sizeX, sizeY));
             fruits[3] = new Bitmap(Properties.Resources.Watermelon_Slot, new Size(sizeX, sizeY));
@@ -104,7 +104,7 @@ namespace Gambling
             speed = 100;
             Stopwatch stopwatch = new Stopwatch();
             int count = 19;
-            Bitmap bufferImage = new Bitmap(sizeX*3, count * sizeY);
+            Bitmap bufferImage = new Bitmap(sizeX * 3, count * sizeY);
             using (Graphics g = Graphics.FromImage(bufferImage))
             {
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Bilinear;
@@ -112,7 +112,8 @@ namespace Gambling
 
 
                 //блюрені між результатами
-                for (int i = 6; i < count-3; i++) {
+                for (int i = 6; i < count - 3; i++)
+                {
                     g.DrawImage(fruits[random.Next(4, 8)], 0, i * sizeY, sizeX, sizeY);
                     g.DrawImage(fruits[random.Next(4, 8)], sizeX, i * sizeY, sizeX, sizeY);
                     g.DrawImage(fruits[random.Next(4, 8)], sizeX * 2, i * sizeY, sizeX, sizeY);
@@ -129,9 +130,9 @@ namespace Gambling
                 //старі результати
                 for (int i = count - 3; i < count; i++)
                 {
-                    g.DrawImage(fruits[barabans[0, i - count + 3]+4], 0, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[barabans[1, i - count + 3]+4], sizeX, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[barabans[2, i - count + 3]+4], sizeX * 2, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[0, i - count + 3] + 4], 0, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[1, i - count + 3] + 4], sizeX, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[2, i - count + 3] + 4], sizeX * 2, i * sizeY, sizeX, sizeY);
                 }
 
                 //для джекпоту
@@ -175,7 +176,7 @@ namespace Gambling
                     {
                         gr.Clear(Color.Transparent);
 
-                        gr.DrawImage(bufferImage, new Rectangle(x, y, sizeX*3, sizeY*3), new Rectangle(0, (count - 3) * sizeY - yy, sizeX*3, sizeY*3), GraphicsUnit.Pixel);
+                        gr.DrawImage(bufferImage, new Rectangle(x, y, sizeX * 3, sizeY * 3), new Rectangle(0, (count - 3) * sizeY - yy, sizeX * 3, sizeY * 3), GraphicsUnit.Pixel);
 
                         gr.DrawImage(bars, 0, 0, sloty.Width, sloty.Height);
 
@@ -213,7 +214,7 @@ namespace Gambling
                     checks[i, j] = barabans[i, j];
                 }
             }
-                using (Graphics g = Graphics.FromImage(img))
+            using (Graphics g = Graphics.FromImage(img))
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -278,10 +279,10 @@ namespace Gambling
             }
 
             sloty.Image = img;
-            if(win == 9)
+            if (win == 9)
                 MessageBox.Show("ДЖЕКПОТ, ДЖЕКПОТ, ХУЙ ТЄ В РОТ", "ДЖЕКПОТ");
-            else if(win>1)
-                MessageBox.Show("x"+win,"Виграш");
+            else if (win > 1)
+                MessageBox.Show("x" + win, "Виграш");
 
             isSpin = false;
             krutytyButton.Image = Properties.Resources.krutity;
@@ -316,5 +317,16 @@ namespace Gambling
                 krutytyButton.Image = Properties.Resources.krutity;
         }
 
+        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Space)
+            {
+                krutytyButton_MouseClick(null, null);
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                mainForm.backButton_MouseClick(null, null);
+            }
+        }
     }
 }

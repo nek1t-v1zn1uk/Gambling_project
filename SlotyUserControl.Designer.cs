@@ -93,6 +93,7 @@
             DoubleBuffered = true;
             Name = "SlotyUserControl";
             Size = new Size(1120, 656);
+            KeyPress += SlotyUserControl_KeyPress;
             ((System.ComponentModel.ISupportInitialize)sloty).EndInit();
             ((System.ComponentModel.ISupportInitialize)krutytyButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

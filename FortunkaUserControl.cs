@@ -197,5 +197,17 @@ namespace Gambling
                 krutytyButton.Image = Properties.Resources.krutity;
         }
 
+        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                krutytyButton_MouseClick(null, null);
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                mainForm.backButton_MouseClick(null, null);
+            }
+        }
+
     }
 }

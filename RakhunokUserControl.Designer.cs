@@ -39,10 +39,11 @@
             // pidtverdityButton
             // 
             pidtverdityButton.BackColor = Color.Transparent;
-            pidtverdityButton.Image = Properties.Resources.pidtverdity;
-            pidtverdityButton.Location = new Point(247, 424);
+            pidtverdityButton.BackgroundImage = Properties.Resources.pidtverdity;
+            pidtverdityButton.BackgroundImageLayout = ImageLayout.Zoom;
+            pidtverdityButton.Location = new Point(218, 409);
             pidtverdityButton.Name = "pidtverdityButton";
-            pidtverdityButton.Size = new Size(539, 168);
+            pidtverdityButton.Size = new Size(484, 105);
             pidtverdityButton.TabIndex = 1;
             pidtverdityButton.TabStop = false;
             pidtverdityButton.MouseClick += pidtverdityButton_MouseClick;
@@ -53,7 +54,7 @@
             // 
             // pictureTextBox
             // 
-            pictureTextBox.BackColor = SystemColors.ActiveBorder;
+            pictureTextBox.BackColor = Color.Transparent;
             pictureTextBox.BackgroundImage = Properties.Resources.money_back;
             pictureTextBox.BackgroundImageLayout = ImageLayout.Zoom;
             pictureTextBox.Location = new Point(301, 254);
@@ -69,7 +70,7 @@
             pidtverdityPicture.BackgroundImageLayout = ImageLayout.Zoom;
             pidtverdityPicture.Location = new Point(272, 153);
             pidtverdityPicture.Name = "pidtverdityPicture";
-            pidtverdityPicture.Size = new Size(479, 65);
+            pidtverdityPicture.Size = new Size(465, 64);
             pidtverdityPicture.TabIndex = 3;
             pidtverdityPicture.TabStop = false;
             // 

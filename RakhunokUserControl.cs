@@ -26,9 +26,36 @@ namespace Gambling
             mainForm = form;
             this.Size = size;
 
-            Load();
             LoadCustomFont();
             AddTransparentTextBox();
+            Load();
+            
+
+        }
+
+        public void Load()
+        {
+            int x, y, p, w, h;
+            w = (int)(Width / 4.266);
+            h = (int)(w / 3.6);
+            x = (int)((Width - w) / 2);
+            y = (int)(Height / 4.39);
+            p = (int)((Height - h * 4 - y * 2) / 3);
+
+            pidtverdityPicture.Size = new Size(w, h);
+            pidtverdityPicture.Location = new Point(x, y);
+
+            // Розміщення pictureTextBox нижче pidtverdityPicture
+            pictureTextBox.Size = new Size(w, h);
+            pictureTextBox.Location = new Point(x, y + h + p);
+
+            // Зменшення розміру transparentTextBox і опускання його нижче
+            transparentTextBox.Size = new Size(w - 30, h - 30); // Зменшення розміру на 10 пікселів по обидва боки
+            transparentTextBox.Location = new Point(x+10, y + h + p + 40); // Опустити на 10 пікселів нижче pictureTextBox
+
+            // Розміщення pidtverdityButton під transparentTextBox
+            pidtverdityButton.Size = new Size(w, h);
+            pidtverdityButton.Location = new Point(x, y + (h * 2) + (p * 2) + 20);
         }
 
 
@@ -58,7 +85,8 @@ namespace Gambling
                 Text = "",
                 Location = new Point(10, 10),
                 Size = new Size(200, 30),
-                Font = new Font(privateFonts.Families[0], 48.0F, FontStyle.Regular),
+
+                Font = new Font(privateFonts.Families[0], 20.0F, FontStyle.Regular),
                 ForeColor = Color.FromArgb(46, 46, 46),
             };
 
@@ -66,32 +94,25 @@ namespace Gambling
             transparentTextBox.KeyPress += TransparentTextBox_KeyPress;
 
             this.Controls.Add(transparentTextBox);
+            transparentTextBox.BringToFront();
         }
 
 
-        public void Load()
-        {
-
-        }
+       
 
         private void pidtverdityButton_MouseClick(object sender, MouseEventArgs e)
         {
             if (transparentTextBox.Text != "")
-                mainForm.isRakhunok = double.Parse(transparentTextBox.Text);
+            {
+                mainForm.isRakhunok += int.Parse(transparentTextBox.Text);
+                transparentTextBox.Text = "";
+            }
             else return;
 
         }
         private void TransparentTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char decimalSeparator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
-
-           
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != decimalSeparator && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true; 
-            }
-            
-            if (e.KeyChar == decimalSeparator && transparentTextBox.Text.Contains(decimalSeparator.ToString()))
+        { 
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true; 
             }
@@ -99,22 +120,22 @@ namespace Gambling
 
         private void pidtverdityButton_MouseDown(object sender, MouseEventArgs e)
         {
-            pidtverdityButton.Image = Properties.Resources.pidtverdity_clicked;
+            pidtverdityButton.BackgroundImage = Properties.Resources.pidtverdity_clicked;
         }
 
         private void pidtverdityButton_MouseEnter(object sender, EventArgs e)
         {
-            pidtverdityButton.Image = Properties.Resources.pidtverdity_hovered;
+            pidtverdityButton.BackgroundImage = Properties.Resources.pidtverdity_hovered;
         }
 
         private void pidtverdityButton_MouseLeave(object sender, EventArgs e)
         {
-            pidtverdityButton.Image = Properties.Resources.pidtverdity;
+            pidtverdityButton.BackgroundImage = Properties.Resources.pidtverdity;
         }
 
         private void pidtverdityButton_MouseUp(object sender, MouseEventArgs e)
         {
-            pidtverdityButton.Image = Properties.Resources.pidtverdity;
+            pidtverdityButton.BackgroundImage = Properties.Resources.pidtverdity;
         }
 
     }

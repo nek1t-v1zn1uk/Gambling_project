@@ -4,7 +4,7 @@ namespace Gambling
     {
         public bool isMusic = true;
         public bool isSound = true;
-        public double isRakhunok =0;
+        public int isRakhunok =0;
         public MainForm()
         {
             InitializeComponent();
@@ -26,38 +26,38 @@ namespace Gambling
         private async void MainForm_Shown(object sender, EventArgs e)
         {
 
-            //axWindowsMediaPlayer1.Enabled = false; 
-          
-            //MainPanel.Location = new Point(0, 0);
-            //MainPanel.Size = ClientSize;
-            //MainUserControl control = new MainUserControl(MainPanel.Size, this);
-            //MainPanel.Controls.Add(control);
+            axWindowsMediaPlayer1.Enabled = false;
+
+            MainPanel.Location = new Point(0, 0);
+            MainPanel.Size = ClientSize;
+            MainUserControl control = new MainUserControl(MainPanel.Size, this);
+            MainPanel.Controls.Add(control);
 
 
-            //string videoPath = System.IO.Path.Combine(Application.StartupPath, "Resources", "red dice.mp4");
-            
-            //// Check if the video file exists before playing
-            //if (System.IO.File.Exists(videoPath))
-            //{
-            //    axWindowsMediaPlayer1.Visible = true;
-            //    axWindowsMediaPlayer1.URL = videoPath;
-            //    axWindowsMediaPlayer1.windowlessVideo = true;
-            //    axWindowsMediaPlayer1.uiMode = "none";
-            //    axWindowsMediaPlayer1.Dock = DockStyle.Fill;
+            string videoPath = System.IO.Path.Combine(Application.StartupPath, "Resources", "red dice.mp4");
 
-            //    await Task.Delay(5000);
+            // Check if the video file exists before playing
+            if (System.IO.File.Exists(videoPath))
+            {
+                axWindowsMediaPlayer1.Visible = true;
+                axWindowsMediaPlayer1.URL = videoPath;
+                axWindowsMediaPlayer1.windowlessVideo = true;
+                axWindowsMediaPlayer1.uiMode = "none";
+                axWindowsMediaPlayer1.Dock = DockStyle.Fill;
 
-            //    // Stop the video after 5 seconds
-            //    axWindowsMediaPlayer1.Ctlcontrols.stop();
-            //    axWindowsMediaPlayer1.Visible = false;
+                await Task.Delay(5000);
 
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Video file not found: " + videoPath);
-            //}
+                // Stop the video after 5 seconds
+                axWindowsMediaPlayer1.Ctlcontrols.stop();
+                axWindowsMediaPlayer1.Visible = false;
 
-            
+            }
+            else
+            {
+                MessageBox.Show("Video file not found: " + videoPath);
+            }
+
+
         }
     }
 }

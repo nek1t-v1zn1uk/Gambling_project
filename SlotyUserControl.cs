@@ -18,7 +18,7 @@ namespace Gambling
         public MainForm mainForm;
 
         private int x, y, slotW, slotH;
-        private List<byte> baraban1 = new List<byte>(3), baraban2 = new List<byte>(3), baraban3 = new List<byte>(3);
+        private byte[,] barabans = new byte[3, 3];
         private Random random = new Random();
 
         private bool isSpin = false;
@@ -52,6 +52,11 @@ namespace Gambling
             fruits[5] = new Bitmap(Properties.Resources.Orange_Blurred, new Size(sizeX, sizeY));
             fruits[6] = new Bitmap(Properties.Resources.Cherry_Blurred, new Size(sizeX, sizeY));
             fruits[7] = new Bitmap(Properties.Resources.Watermelon_Blurred, new Size(sizeX, sizeY));
+
+            //fruits[8] = new Bitmap(Properties.Resources.Banana_Slot, new Size(sizeX, sizeY));
+            //fruits[9] = new Bitmap(Properties.Resources.Orange_Slot, new Size(sizeX, sizeY));
+            //fruits[10] = new Bitmap(Properties.Resources.Cherry_Slot, new Size(sizeX, sizeY));
+            //fruits[11] = new Bitmap(Properties.Resources.Watermelon_Slot, new Size(sizeX, sizeY));
             bars = Properties.Resources.slots_bars;
 
             sloty.Location = new Point((int)(Width / 5.333), (int)(Height / 26.341));
@@ -66,15 +71,13 @@ namespace Gambling
             sizeX = (int)(Width / 6.1538);
             sizeY = (int)(sizeX / 1.724);
 
-            baraban1.Clear();
-            baraban2.Clear();
-            baraban3.Clear();
 
+            byte r = (byte)random.Next(0, 4);
             for (int i = 0; i < 3; i++)
             {
-                baraban1.Add((byte)random.Next(0, 4));
-                baraban2.Add((byte)random.Next(0, 4));
-                baraban3.Add((byte)random.Next(0, 4));
+                barabans[0, i] = r;
+                barabans[1, i] = r;
+                barabans[2, i] = r;
             }
 
             using (Graphics g = Graphics.FromImage(sloty.Image))
@@ -83,9 +86,9 @@ namespace Gambling
 
                 for (int i = 0; i < 3; i++)
                 {
-                    g.DrawImage(fruits[baraban1[i]], x, y + i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban2[i]], x + sizeX, y + i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban3[i]], x + sizeX * 2, y + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[0, i]], x, y + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[1, i]], x + sizeX, y + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[2, i]], x + sizeX * 2, y + i * sizeY, sizeX, sizeY);
                 }
                 //рамка
                 g.DrawImage(Properties.Resources.slots_bars_2, 0, 0, sloty.Width, sloty.Height);
@@ -118,31 +121,34 @@ namespace Gambling
                 //неблюрені між результатми
                 for (int i = 3; i < 6; i++)
                 {
-                    g.DrawImage(fruits[baraban1[i - 3]], 0, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban2[i - 3]], sizeX, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban3[i - 3]], sizeX * 2, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[random.Next(0, 4)], 0, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[random.Next(0, 4)], sizeX, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[random.Next(0, 4)], sizeX * 2, i * sizeY, sizeX, sizeY);
                 }
 
                 //старі результати
                 for (int i = count - 3; i < count; i++)
                 {
-                    g.DrawImage(fruits[baraban1[i - count + 3]+4], 0, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban2[i - count + 3]+4], sizeX, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban3[i - count + 3]+4], sizeX * 2, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[0, i - count + 3]+4], 0, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[1, i - count + 3]+4], sizeX, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[2, i - count + 3]+4], sizeX * 2, i * sizeY, sizeX, sizeY);
                 }
 
-                baraban1.Clear();
-                baraban2.Clear();
-                baraban3.Clear();
+                //для джекпоту
+                //byte r = (byte)random.Next(0, 4);
+
                 //нові результати
                 for (int i = 0; i < 3; i++)
                 {
-                    baraban1.Add((byte)random.Next(0, 4));
-                    g.DrawImage(fruits[baraban1[i]], 0, i * sizeY, sizeX, sizeY);
-                    baraban2.Add((byte)random.Next(0, 4));
-                    g.DrawImage(fruits[baraban2[i]], sizeX, i * sizeY, sizeX, sizeY);
-                    baraban3.Add((byte)random.Next(0, 4));
-                    g.DrawImage(fruits[baraban3[i]], sizeX * 2, i * sizeY, sizeX, sizeY);
+                    //barabans[0, i] = r;
+                    //barabans[1, i] = r;
+                    //barabans[2, i] = r;
+                    barabans[0, i] = (byte)random.Next(0, 4);
+                    barabans[1, i] = (byte)random.Next(0, 4);
+                    barabans[2, i] = (byte)random.Next(0, 4);
+                    g.DrawImage(fruits[barabans[0, i]], 0, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[1, i]], sizeX, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[barabans[2, i]], sizeX * 2, i * sizeY, sizeX, sizeY);
                 }
 
                 Image im = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -197,7 +203,23 @@ namespace Gambling
 
         public void check()
         {
-            
+            int win = 1;
+            for(int i = 0; i<3; i++)
+            {
+                if (barabans[0, i] == barabans[1, i] && barabans[1, i] == barabans[2, i])
+                    win++;
+                if (barabans[i, 0] == barabans[i, 1] && barabans[i, 1] == barabans[i, 2])
+                    win++;
+            }
+            if (barabans[0, 0] == barabans[1, 1] && barabans[1, 1] == barabans[2, 2])
+                win++;
+            if (barabans[2, 0] == barabans[1, 1] && barabans[1, 1] == barabans[0, 2])
+                win++;
+
+            if(win == 9)
+                MessageBox.Show("ДЖЕКПОТ, ДЖЕКПОТ, ХУЙ ТЄ В РОТ", "ДЖЕКПОТ");
+            else if(win>1)
+                MessageBox.Show("x"+win,"Виграш");
 
             isSpin = false;
             krutytyButton.Image = Properties.Resources.krutity;

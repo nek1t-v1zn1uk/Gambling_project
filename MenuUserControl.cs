@@ -98,7 +98,7 @@ namespace Gambling
 
         private void ruletkaButton_MouseClick(object sender, MouseEventArgs e)
         {
-
+            mainForm.setUserControl(new FortunkaUserControl(Size, mainForm));
         }
 
         private void kostyButton_MouseClick(object sender, MouseEventArgs e)

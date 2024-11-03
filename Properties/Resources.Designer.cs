@@ -83,6 +83,16 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background_roulette {
+            get {
+                object obj = ResourceManager.GetObject("background_roulette", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background_slots {
             get {
                 object obj = ResourceManager.GetObject("background_slots", resourceCulture);
@@ -496,6 +506,26 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap Watermelon_Slot {
             get {
                 object obj = ResourceManager.GetObject("Watermelon_Slot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wheel_of_fortune_frame {
+            get {
+                object obj = ResourceManager.GetObject("wheel of fortune_frame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wheel_of_fortune_inside {
+            get {
+                object obj = ResourceManager.GetObject("wheel of fortune_inside", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

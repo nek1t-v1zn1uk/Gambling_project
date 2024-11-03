@@ -124,17 +124,11 @@
   <data name="sloty_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sloty_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gambling_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gambling_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="kostya" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kostya.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vihid_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vihid_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sloty_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sloty_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="nalashtuvanya_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nalashtuvanya_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,8 +139,11 @@
   <data name="rahunok_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rahunok_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wheel of fortune_frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wheel of fortune_frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sloty_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sloty_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_slots" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_slots.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,6 +159,9 @@
   </data>
   <data name="gambling" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gambling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background_roulette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background_roulette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Grape_Slot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Grape_Slot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -180,6 +180,9 @@
   </data>
   <data name="sloty_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sloty_preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_buttons" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_buttons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,8 +208,8 @@
   <data name="slots_bars_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\slots_bars_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nalashtuvanya_clidked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nalashtuvanya_clidked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="krutity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\krutity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Watermelon_Blurred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Watermelon_Blurred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,8 +217,8 @@
   <data name="Cherry_Blurred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cherry_Blurred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="krutity" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\krutity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gambling_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gambling_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ruletka_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ruletka_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,6 +238,9 @@
   <data name="Orange_Slot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orange_Slot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="kosty_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kosty_preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="krutity_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\krutity_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -244,19 +250,25 @@
   <data name="ruletka" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ruletka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="wheel of fortune_inside" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wheel of fortune_inside.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Orange_Blurred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orange_Blurred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kosty_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kosty_preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="nalashtuvanya_clidked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nalashtuvanya_clidked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background_roulette" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background_roulette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Banana_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banana_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wheel of fortune_frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wheel of fortune_frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cherry_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cherry_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wheel of fortune_inside" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wheel of fortune_inside.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Orange_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orange_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Watermelon_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Watermelon_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

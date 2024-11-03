@@ -113,6 +113,16 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Banana_Glow {
+            get {
+                object obj = ResourceManager.GetObject("Banana_Glow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Banana_Slot {
             get {
                 object obj = ResourceManager.GetObject("Banana_Slot", resourceCulture);
@@ -126,6 +136,16 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap Cherry_Blurred {
             get {
                 object obj = ResourceManager.GetObject("Cherry_Blurred", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cherry_Glow {
+            get {
+                object obj = ResourceManager.GetObject("Cherry_Glow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,6 +316,16 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap Orange_Blurred {
             get {
                 object obj = ResourceManager.GetObject("Orange_Blurred", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Orange_Glow {
+            get {
+                object obj = ResourceManager.GetObject("Orange_Glow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -496,6 +526,16 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap Watermelon_Blurred {
             get {
                 object obj = ResourceManager.GetObject("Watermelon_Blurred", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Watermelon_Glow {
+            get {
+                object obj = ResourceManager.GetObject("Watermelon_Glow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

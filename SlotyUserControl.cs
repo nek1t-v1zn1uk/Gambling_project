@@ -18,7 +18,7 @@ namespace Gambling
         public MainForm mainForm;
 
         private int x, y, slotW, slotH;
-        private byte[,] barabans = new byte[3, 3];
+        private int[,] barabans = new int[3, 3];
         private Random random = new Random();
 
         private bool isSpin = false;
@@ -28,7 +28,7 @@ namespace Gambling
 
         private int sizeX = 312, sizeY = 181;
 
-        private Image[] fruits = new Image[8];
+        private Image[] fruits = new Image[12];
         private Image bars;
 
 
@@ -53,10 +53,10 @@ namespace Gambling
             fruits[6] = new Bitmap(Properties.Resources.Cherry_Blurred, new Size(sizeX, sizeY));
             fruits[7] = new Bitmap(Properties.Resources.Watermelon_Blurred, new Size(sizeX, sizeY));
 
-            //fruits[8] = new Bitmap(Properties.Resources.Banana_Slot, new Size(sizeX, sizeY));
-            //fruits[9] = new Bitmap(Properties.Resources.Orange_Slot, new Size(sizeX, sizeY));
-            //fruits[10] = new Bitmap(Properties.Resources.Cherry_Slot, new Size(sizeX, sizeY));
-            //fruits[11] = new Bitmap(Properties.Resources.Watermelon_Slot, new Size(sizeX, sizeY));
+            fruits[8] = new Bitmap(Properties.Resources.Banana_Glow, new Size(sizeX, sizeY));
+            fruits[9] = new Bitmap(Properties.Resources.Orange_Glow, new Size(sizeX, sizeY));
+            fruits[10] = new Bitmap(Properties.Resources.Cherry_Glow, new Size(sizeX, sizeY));
+            fruits[11] = new Bitmap(Properties.Resources.Watermelon_Glow, new Size(sizeX, sizeY));
             bars = Properties.Resources.slots_bars;
 
             sloty.Location = new Point((int)(Width / 5.333), (int)(Height / 26.341));
@@ -204,18 +204,80 @@ namespace Gambling
         public void check()
         {
             int win = 1;
-            for(int i = 0; i<3; i++)
+            Image img = new Bitmap(sloty.Width, sloty.Height);
+            int[,] checks = new int[3, 3];
+            for (int i = 0; i < 3; i++)
             {
-                if (barabans[0, i] == barabans[1, i] && barabans[1, i] == barabans[2, i])
-                    win++;
-                if (barabans[i, 0] == barabans[i, 1] && barabans[i, 1] == barabans[i, 2])
-                    win++;
+                for (int j = 0; j < 3; j++)
+                {
+                    checks[i, j] = barabans[i, j];
+                }
             }
-            if (barabans[0, 0] == barabans[1, 1] && barabans[1, 1] == barabans[2, 2])
-                win++;
-            if (barabans[2, 0] == barabans[1, 1] && barabans[1, 1] == barabans[0, 2])
-                win++;
+                using (Graphics g = Graphics.FromImage(img))
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (barabans[0, i] == barabans[1, i] && barabans[1, i] == barabans[2, i])
+                    {
+                        win++;
+                        if (checks[0, i] < 5)
+                            checks[0, i] += 8;
+                        if (checks[1, i] < 5)
+                            checks[1, i] += 8;
+                        if (checks[2, i] < 5)
+                            checks[2, i] += 8;
+                    }
+                }
 
+                for (int i = 0; i < 3; i++)
+                {
+                    if (barabans[i, 0] == barabans[i, 1] && barabans[i, 1] == barabans[i, 2])
+                    {
+                        win++;
+                        if (checks[i, 0] < 5)
+                            checks[i, 0] += 8;
+                        if (checks[i, 1] < 5)
+                            checks[i, 1] += 8;
+                        if (checks[i, 2] < 5)
+                            checks[i, 2] += 8;
+                    }
+                }
+
+                if (barabans[0, 0] == barabans[1, 1] && barabans[1, 1] == barabans[2, 2])
+                {
+                    win++;
+                    if (checks[0, 0] < 5)
+                        checks[0, 0] += 8;
+                    if (checks[1, 1] < 5)
+                        checks[1, 1] += 8;
+                    if (checks[2, 2] < 5)
+                        checks[2, 2] += 8;
+                }
+                if (barabans[2, 0] == barabans[1, 1] && barabans[1, 1] == barabans[0, 2])
+                {
+                    win++;
+                    if (checks[2, 0] < 5)
+                        checks[2, 0] += 8;
+                    if (checks[1, 1] < 5)
+                        checks[1, 1] += 8;
+                    if (checks[0, 2] < 5)
+                        checks[0, 2] += 8;
+                }
+
+                for (int i = 0; i < 3; i++)
+                {
+                    g.DrawImage(fruits[checks[0, i]], x, y + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[checks[1, i]], x + sizeX, y + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[checks[2, i]], x + sizeX * 2, y + i * sizeY, sizeX, sizeY);
+                }
+
+                //рамка
+                g.DrawImage(Properties.Resources.slots_bars_2, 0, 0, sloty.Width, sloty.Height);
+
+
+            }
+
+            sloty.Image = img;
             if(win == 9)
                 MessageBox.Show("ДЖЕКПОТ, ДЖЕКПОТ, ХУЙ ТЄ В РОТ", "ДЖЕКПОТ");
             else if(win>1)

@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\DaysOne-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <COMReference Include="WMPLib">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>
@@ -26,6 +30,10 @@
       <Lcid>0</Lcid>
       <Isolated>false</Isolated>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\DaysOne-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>

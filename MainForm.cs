@@ -4,6 +4,7 @@ namespace Gambling
     {
         public bool isMusic = true;
         public bool isSound = true;
+        public double isRakhunok =0;
         public MainForm()
         {
             InitializeComponent();
@@ -19,13 +20,14 @@ namespace Gambling
             MainPanel.ResumeLayout();
         }
 
-       
+
+     
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
 
-            axWindowsMediaPlayer1.Enabled = false;
-
+            axWindowsMediaPlayer1.Enabled = false; // Відключаємо події миші
+          
             MainPanel.Location = new Point(0, 0);
             MainPanel.Size = ClientSize;
             MainUserControl control = new MainUserControl(MainPanel.Size, this);
@@ -48,6 +50,7 @@ namespace Gambling
                 // Stop the video after 5 seconds
                 axWindowsMediaPlayer1.Ctlcontrols.stop();
                 axWindowsMediaPlayer1.Visible = false;
+
             }
             else
             {

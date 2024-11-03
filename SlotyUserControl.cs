@@ -21,10 +21,12 @@ namespace Gambling
         private List<byte> baraban1 = new List<byte>(3), baraban2 = new List<byte>(3), baraban3 = new List<byte>(3);
         private Random random = new Random();
 
+        private bool isSpin = false;
+
         private double speed = 100;
         private int yy = -183;
 
-        private const int sizeX = 312, sizeY = 181;
+        private int sizeX = 312, sizeY = 181;
 
         private Image[] fruits = new Image[8];
         private Image bars;
@@ -61,6 +63,9 @@ namespace Gambling
 
             x = y = (int)(sloty.Width / 9.23);
 
+            sizeX = (int)(Width / 6.1538);
+            sizeY = (int)(sizeX / 1.724);
+
             baraban1.Clear();
             baraban2.Clear();
             baraban3.Clear();
@@ -88,9 +93,10 @@ namespace Gambling
 
         }
 
-
         public async void spin()
         {
+            isSpin = true;
+            label1.Text = "#";
             yy = 0;
             speed = 100;
             Stopwatch stopwatch = new Stopwatch();
@@ -153,8 +159,6 @@ namespace Gambling
                     stopwatch.Restart();
                     yy += (int)speed;
 
-                    if (speed <= 0)
-                        speed = 1;
                     if (yy > (count - 3) * sizeY)
                     {
                         speed = 0;
@@ -167,40 +171,13 @@ namespace Gambling
 
                         gr.DrawImage(bufferImage, new Rectangle(x, y, sizeX*3, sizeY*3), new Rectangle(0, (count - 3) * sizeY - yy, sizeX*3, sizeY*3), GraphicsUnit.Pixel);
 
-                        //stopwatch.Stop();
-                        //elapsed = (int)stopwatch.ElapsedMilliseconds;
-                        //label1.Text = label1.Text + " " + elapsed;
-                        //stopwatch.Restart();
-
                         gr.DrawImage(bars, 0, 0, sloty.Width, sloty.Height);
 
-                        //gr.DrawImage(bufferImage, 0, 0, sloty.Width / 10, sloty.Height);
                     }
-
-                    //stopwatch.Stop();
-                    //elapsed = (int)stopwatch.ElapsedMilliseconds;
-                    //label1.Text = label1.Text + " " + elapsed;
-                    //stopwatch.Restart();
 
                     sloty.Image = img;
 
-                    //stopwatch.Stop();
-                    //elapsed = (int)stopwatch.ElapsedMilliseconds;
-                    //label1.Text = label1.Text + " " + elapsed;
-                    //stopwatch.Restart();
-
-                    //time++;
                     speed -= 1.7;
-                    
-                    ////if (speed <= 0)
-                    //    //speed = 1;
-                    //if (yy >= 0)
-                    //{
-                    //    if (speed == 1)
-                    //        speed = 0;
-                    //    //yy = -183;
-                    //    koef++;
-                    //}
 
                     stopwatch.Stop();
                     elapsed = (int)stopwatch.ElapsedMilliseconds;
@@ -209,15 +186,30 @@ namespace Gambling
                     {
                         await Task.Delay(delayTime);
                     }
+
                     label1.Text = label1.Text + " " + elapsed;
                     label1.Text = label1.Text + "\n";
                 }
             }
+
+            check();
+        }
+
+        public void check()
+        {
+            
+
+            isSpin = false;
+            krutytyButton.Image = Properties.Resources.krutity;
         }
 
         private void krutytyButton_MouseClick(object sender, MouseEventArgs e)
         {
-            spin();
+            if (!isSpin)
+            {
+                spin();
+                krutytyButton.Image = Properties.Resources.krutity_clicked;
+            }
         }
 
         private void krutytyButton_MouseDown(object sender, MouseEventArgs e)
@@ -226,15 +218,18 @@ namespace Gambling
         }
         private void krutytyButton_MouseEnter(object sender, EventArgs e)
         {
-            krutytyButton.Image = Properties.Resources.krutity_hovered;
+            if (!isSpin)
+                krutytyButton.Image = Properties.Resources.krutity_hovered;
         }
         private void krutytyButton_MouseLeave(object sender, EventArgs e)
         {
-            krutytyButton.Image = Properties.Resources.krutity;
+            if (!isSpin)
+                krutytyButton.Image = Properties.Resources.krutity;
         }
         private void krutytyButton_MouseUp(object sender, MouseEventArgs e)
         {
-            krutytyButton.Image = Properties.Resources.krutity;
+            if (!isSpin)
+                krutytyButton.Image = Properties.Resources.krutity;
         }
 
     }

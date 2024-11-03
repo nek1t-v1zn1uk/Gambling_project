@@ -26,7 +26,7 @@ namespace Gambling
 
         private const int sizeX = 312, sizeY = 181;
 
-        private Image[] fruits = new Image[4];
+        private Image[] fruits = new Image[8];
         private Image bars;
 
 
@@ -46,6 +46,10 @@ namespace Gambling
             fruits[1] = new Bitmap(Properties.Resources.Orange_Slot, new Size(sizeX, sizeY));
             fruits[2] = new Bitmap(Properties.Resources.Cherry_Slot, new Size(sizeX, sizeY));
             fruits[3] = new Bitmap(Properties.Resources.Watermelon_Slot, new Size(sizeX, sizeY));
+            fruits[4] = new Bitmap(Properties.Resources.Banana_Blurred, new Size(sizeX, sizeY));
+            fruits[5] = new Bitmap(Properties.Resources.Orange_Blurred, new Size(sizeX, sizeY));
+            fruits[6] = new Bitmap(Properties.Resources.Cherry_Blurred, new Size(sizeX, sizeY));
+            fruits[7] = new Bitmap(Properties.Resources.Watermelon_Blurred, new Size(sizeX, sizeY));
             bars = Properties.Resources.slots_bars;
 
             sloty.Location = new Point((int)(Width / 5.333), (int)(Height / 26.341));
@@ -61,7 +65,7 @@ namespace Gambling
             baraban2.Clear();
             baraban3.Clear();
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 baraban1.Add((byte)random.Next(0, 4));
                 baraban2.Add((byte)random.Next(0, 4));
@@ -72,11 +76,11 @@ namespace Gambling
             {
                 g.Clear(Color.Transparent);
 
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 3; i++)
                 {
-                    g.DrawImage(fruits[baraban1[i]], x, y + yy + i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban2[i]], x + sizeX, y + yy + i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban3[i]], x + sizeX * 2, y + yy + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban1[i]], x, y + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban2[i]], x + sizeX, y + i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban3[i]], x + sizeX * 2, y + i * sizeY, sizeX, sizeY);
                 }
                 //рамка
                 g.DrawImage(Properties.Resources.slots_bars_2, 0, 0, sloty.Width, sloty.Height);
@@ -98,23 +102,33 @@ namespace Gambling
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
 
 
-                for (int i = 3; i < count-3; i++) {
-                    g.DrawImage(fruits[random.Next(0, 4)], 0, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[random.Next(0, 4)], sizeX, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[random.Next(0, 4)], sizeX * 2, i * sizeY, sizeX, sizeY);
+                //блюрені між результатами
+                for (int i = 6; i < count-3; i++) {
+                    g.DrawImage(fruits[random.Next(4, 8)], 0, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[random.Next(4, 8)], sizeX, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[random.Next(4, 8)], sizeX * 2, i * sizeY, sizeX, sizeY);
                 }
 
-                for (int i = count-3; i < count; i++)
+                //неблюрені між результатми
+                for (int i = 3; i < 6; i++)
                 {
-                    g.DrawImage(fruits[baraban1[i - count + 3]], 0, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban2[i - count + 3]], sizeX, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[baraban3[i - count + 3]], sizeX * 2, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban1[i - 3]], 0, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban2[i - 3]], sizeX, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban3[i - 3]], sizeX * 2, i * sizeY, sizeX, sizeY);
+                }
+
+                //старі результати
+                for (int i = count - 3; i < count; i++)
+                {
+                    g.DrawImage(fruits[baraban1[i - count + 3]+4], 0, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban2[i - count + 3]+4], sizeX, i * sizeY, sizeX, sizeY);
+                    g.DrawImage(fruits[baraban3[i - count + 3]+4], sizeX * 2, i * sizeY, sizeX, sizeY);
                 }
 
                 baraban1.Clear();
                 baraban2.Clear();
                 baraban3.Clear();
-
+                //нові результати
                 for (int i = 0; i < 3; i++)
                 {
                     baraban1.Add((byte)random.Next(0, 4));

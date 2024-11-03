@@ -27,40 +27,47 @@ namespace Gambling
             this.Size = size;
 
             Load();
+            LoadCustomFont();
             AddTransparentTextBox();
         }
 
 
+        private void LoadCustomFont()
+        {
+           string resourcePath = "Gambling.Fonts.DaysOne-Regular.ttf"; 
+           using (Stream fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath))
+           {
+             
+             using (MemoryStream memoryStream = new MemoryStream())
+             {
+                 fontStream.CopyTo(memoryStream);
+                 IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem((int)memoryStream.Length);
+                 System.Runtime.InteropServices.Marshal.Copy(memoryStream.ToArray(), 0, fontPtr, (int)memoryStream.Length);
+                 privateFonts.AddMemoryFont(fontPtr, (int)memoryStream.Length);
+                 System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+             }
+             
+             
+           }
+        }
         private void AddTransparentTextBox()
         {
-            TransparentTextBox transparentTextBox = new TransparentTextBox();
-            transparentTextBox.Text = "";
-            transparentTextBox.Location = new Point(10, 10);
-            transparentTextBox.Size = new Size(200, 30);
+            
+            transparentTextBox = new TransparentTextBox
+            {
+                Text = "",
+                Location = new Point(10, 10),
+                Size = new Size(200, 30),
+                Font = new Font(privateFonts.Families[0], 48.0F, FontStyle.Regular),
+                ForeColor = Color.FromArgb(46, 46, 46),
+            };
 
-            // Додаємо прозорий TextBox до контролу
+            
+            transparentTextBox.KeyPress += TransparentTextBox_KeyPress;
+
             this.Controls.Add(transparentTextBox);
         }
 
-        private void LoadCustomFont()
-        {
-            string resourcePath = "Fonts.DaysOne-Regular.ttf"; // Змініть на свій шлях
-            using (Stream fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath))
-            {
-                if (fontStream != null)
-                {
-                   
-                    using (MemoryStream memoryStream = new MemoryStream())
-                    {
-                        fontStream.CopyTo(memoryStream);
-                        IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem((int)memoryStream.Length);
-                        System.Runtime.InteropServices.Marshal.Copy(memoryStream.ToArray(), 0, fontPtr, (int)memoryStream.Length);
-                        privateFonts.AddMemoryFont(fontPtr, (int)memoryStream.Length);
-                        System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-                    }
-                }
-            }
-        }
 
         public void Load()
         {
@@ -69,20 +76,26 @@ namespace Gambling
 
         private void pidtverdityButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (mainForm != null)
+            if (transparentTextBox.Text != "")
+                mainForm.isRakhunok = double.Parse(transparentTextBox.Text);
+            else return;
+
+        }
+        private void TransparentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char decimalSeparator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+
+           
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != decimalSeparator && e.KeyChar != (char)Keys.Back)
             {
-                // Перетворюємо текст у double та присвоюємо значення
-                if (double.TryParse(transparentTextBox.Text, out double result))
-                {
-                    mainForm.isRakhunok = result;
-                }
-                else
-                {
-                    MessageBox.Show("Введено некоректне значення. Будь ласка, введіть число.");
-                }
+                e.Handled = true; 
+            }
+            
+            if (e.KeyChar == decimalSeparator && transparentTextBox.Text.Contains(decimalSeparator.ToString()))
+            {
+                e.Handled = true; 
             }
         }
-
 
         private void pidtverdityButton_MouseDown(object sender, MouseEventArgs e)
         {

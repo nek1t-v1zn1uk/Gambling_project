@@ -85,10 +85,9 @@ namespace Gambling
             {
                 Bitmap rotatedWheel = new Bitmap(wheelImage.Width, wheelImage.Height);
                 rotatedWheel.SetResolution(wheelImage.HorizontalResolution, wheelImage.VerticalResolution);
-                while (Math.Abs(angle - baseAngle) >= 1 || speed !=1 || ok < 4)
+                while (Math.Abs(angle - baseAngle) >= 1.5 || speed !=1 || ok < 4)
                 {
                     stopwatch.Restart();
-
 
                     if (angle > 360)
                     {
@@ -113,7 +112,6 @@ namespace Gambling
 
                     g.Clear(Color.Transparent);
 
-
                     using (Graphics gr = Graphics.FromImage(rotatedWheel))
                     {
                         // Центр координатної системи встановлюємо у центр зображення
@@ -134,6 +132,8 @@ namespace Gambling
 
 
                     wheel.Image = bufferImage;
+
+
                     if(ok<4 && speed < 20)
                         speed += 1;
                     else if (ok==5 && speed - 0.5 >= 1)

@@ -121,8 +121,14 @@
   <data name="vihid_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vihid_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Orange_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orange_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sloty_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sloty_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gambling_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gambling_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kostya" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kostya.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,8 +136,8 @@
   <data name="vihid_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vihid_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nalashtuvanya_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nalashtuvanya_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wheel of fortune_frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wheel of fortune_frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +145,11 @@
   <data name="rahunok_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rahunok_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wheel of fortune_frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wheel of fortune_frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rahunok_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rahunok_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sloty_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sloty_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_slots" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_slots.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,6 +159,9 @@
   </data>
   <data name="gambling_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gambling_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banana_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banana_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sloty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sloty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +178,8 @@
   <data name="nalashtuvanya" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nalashtuvanya.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rahunok_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rahunok_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="nalashtuvanya_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nalashtuvanya_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kostya_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kostya_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,8 +190,11 @@
   <data name="sloty_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sloty_preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cherry_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cherry_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slots_bars_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slots_bars_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_buttons" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_buttons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,20 +217,23 @@
   <data name="kostya_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kostya_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="slots_bars_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\slots_bars_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sloty_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sloty_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="krutity" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\krutity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="nalashtuvanya_clidked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nalashtuvanya_clidked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Watermelon_Blurred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Watermelon_Blurred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Watermelon_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Watermelon_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Cherry_Blurred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cherry_Blurred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gambling_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gambling_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="krutity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\krutity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ruletka_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ruletka_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,9 +253,6 @@
   <data name="Orange_Slot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orange_Slot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kosty_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kosty_preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="krutity_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\krutity_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,19 +268,16 @@
   <data name="Orange_Blurred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orange_Blurred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nalashtuvanya_clidked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nalashtuvanya_clidked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kosty_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kosty_preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Banana_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Banana_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Back_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cherry_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cherry_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Back_button_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back_button_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Orange_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Orange_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Watermelon_Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Watermelon_Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Back_button_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back_button_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

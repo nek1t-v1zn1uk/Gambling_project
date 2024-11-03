@@ -67,6 +67,13 @@ namespace Gambling
             wheel.Size = new Size((int)(Width/2.656), (int)(Width / 2.656));
             wheel.Location = new Point((int)(Width / 3.211), (int)(Height / 10.8));
 
+            using (Graphics g = Graphics.FromImage(wheel.Image))
+            {
+                g.Clear(Color.Transparent);
+                g.DrawImage(wheelImage, 0, 0, wheel.Width, wheel.Height);
+                g.DrawImage(frame, 0, 0, wheel.Width, wheel.Height);
+            }
+            wheel.Invalidate();
         }
 
         private async void spin()

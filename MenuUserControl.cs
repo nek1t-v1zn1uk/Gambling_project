@@ -103,7 +103,7 @@ namespace Gambling
 
         private void kostyButton_MouseClick(object sender, MouseEventArgs e)
         {
-            mainForm.setUserControl(new MainUserControl(Size, mainForm));
+
         }
 
 

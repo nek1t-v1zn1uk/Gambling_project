@@ -50,7 +50,7 @@
             // 
             MainPanel.BackgroundImage = Properties.Resources.background_2;
             MainPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            MainPanel.Location = new Point(424, 153);
+            MainPanel.Location = new Point(504, 193);
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(250, 125);
             MainPanel.TabIndex = 7;

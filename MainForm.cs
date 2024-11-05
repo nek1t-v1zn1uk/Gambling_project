@@ -6,6 +6,7 @@ namespace Gambling
     {
         public bool isMusic = true;
         public bool isSound = true;
+        public int countToJecpot;
         public MainForm()
         {
             InitializeComponent();
@@ -17,7 +18,14 @@ namespace Gambling
         public void setUserControl(UserControl control)
         {
             MainPanel.SuspendLayout();
+            UserControl cont = (UserControl)MainPanel.Controls[0];
+            if (cont is FortunkaUserControl f)
+                f.Cancel();
+            else if (cont is SlotyUserControl s)
+                s.Cancel();
             MainPanel.Controls.Clear();
+            cont.Dispose();
+            cont = null;
             MainPanel.Controls.Add(control);
             MainPanel.ResumeLayout();
             backButton.Visible = true;
@@ -72,7 +80,8 @@ namespace Gambling
                 setUserControl(new MainUserControl(Size, this));
                 backButton.Visible = false;
             }
-            else if(MainPanel.Controls[0] is SlotyUserControl || MainPanel.Controls[0] is FortunkaUserControl)
+            else if(MainPanel.Controls[0] is SlotyUserControl  || MainPanel.Controls[0] is FortunkaUserControl 
+                || MainPanel.Controls[0] is KostyUserControl)
                 setUserControl(new MenuUserControl(Size, this));
         }
         private void backButton_MouseDown(object sender, MouseEventArgs e)

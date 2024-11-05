@@ -62,7 +62,7 @@ namespace Gambling
                 soundButton.Image = Properties.Resources.no_sound;
         }
 
-        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
             {

@@ -47,6 +47,8 @@ namespace Gambling
             {15, 0}
         };
 
+        private bool canSpin = true;
+
         public FortunkaUserControl(Size size, MainForm form)
         {
             InitializeComponent();
@@ -94,6 +96,8 @@ namespace Gambling
                 rotatedWheel.SetResolution(wheelImage.HorizontalResolution, wheelImage.VerticalResolution);
                 while (Math.Abs(angle - baseAngle) >= 1.5 || speed !=1 || ok < 4)
                 {
+                    if (canSpin == false)
+                        return;
                     stopwatch.Restart();
 
                     if (angle > 360)
@@ -168,6 +172,12 @@ namespace Gambling
             krutytyButton.Image = Properties.Resources.krutity;
         }
 
+        public void Cancel()
+        {
+            canSpin = false;
+        }
+
+
         private void krutytyButton_MouseClick(object sender, MouseEventArgs e)
         {
             if (!isSpin)
@@ -197,7 +207,7 @@ namespace Gambling
                 krutytyButton.Image = Properties.Resources.krutity;
         }
 
-        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Space)
             {

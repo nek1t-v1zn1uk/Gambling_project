@@ -31,7 +31,7 @@ namespace Gambling
         private Image[] fruits = new Image[12];
         private Image bars;
 
-
+        private bool canSpin = true;
         public SlotyUserControl(Size size, MainForm form)
         {
             InitializeComponent();
@@ -94,6 +94,7 @@ namespace Gambling
                 g.DrawImage(Properties.Resources.slots_bars_2, 0, 0, sloty.Width, sloty.Height);
             }
 
+            mainForm.countToJecpot = random.Next(50, 100);
         }
 
         public async void spin()
@@ -135,21 +136,33 @@ namespace Gambling
                     g.DrawImage(fruits[barabans[2, i - count + 3] + 4], sizeX * 2, i * sizeY, sizeX, sizeY);
                 }
 
-                //для джекпоту
-                //byte r = (byte)random.Next(0, 4);
 
                 //нові результати
-                for (int i = 0; i < 3; i++)
+                mainForm.countToJecpot--;
+                if (mainForm.countToJecpot == 0)
                 {
-                    //barabans[0, i] = r;
-                    //barabans[1, i] = r;
-                    //barabans[2, i] = r;
-                    barabans[0, i] = (byte)random.Next(0, 4);
-                    barabans[1, i] = (byte)random.Next(0, 4);
-                    barabans[2, i] = (byte)random.Next(0, 4);
-                    g.DrawImage(fruits[barabans[0, i]], 0, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[barabans[1, i]], sizeX, i * sizeY, sizeX, sizeY);
-                    g.DrawImage(fruits[barabans[2, i]], sizeX * 2, i * sizeY, sizeX, sizeY);
+                        byte r = (byte)random.Next(0, 4);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        barabans[0, i] = r;
+                        barabans[1, i] = r;
+                        barabans[2, i] = r;
+                        g.DrawImage(fruits[barabans[0, i]], 0, i * sizeY, sizeX, sizeY);
+                        g.DrawImage(fruits[barabans[1, i]], sizeX, i * sizeY, sizeX, sizeY);
+                        g.DrawImage(fruits[barabans[2, i]], sizeX * 2, i * sizeY, sizeX, sizeY);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        barabans[0, i] = (byte)random.Next(0, 4);
+                        barabans[1, i] = (byte)random.Next(0, 4);
+                        barabans[2, i] = (byte)random.Next(0, 4);
+                        g.DrawImage(fruits[barabans[0, i]], 0, i * sizeY, sizeX, sizeY);
+                        g.DrawImage(fruits[barabans[1, i]], sizeX, i * sizeY, sizeX, sizeY);
+                        g.DrawImage(fruits[barabans[2, i]], sizeX * 2, i * sizeY, sizeX, sizeY);
+                    }
                 }
 
                 Image im = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -162,6 +175,8 @@ namespace Gambling
                 Image img = new Bitmap(sloty.Width, sloty.Height);
                 while (speed > 0)
                 {
+                    if (canSpin == false)
+                        return;
                     int elapsed;
                     stopwatch.Restart();
                     yy += (int)speed;
@@ -280,7 +295,10 @@ namespace Gambling
 
             sloty.Image = img;
             if (win == 9)
+            {
                 MessageBox.Show("ДЖЕКПОТ, ДЖЕКПОТ, ХУЙ ТЄ В РОТ", "ДЖЕКПОТ");
+                mainForm.countToJecpot = random.Next(50, 100);
+            }
             else if (win > 1)
                 MessageBox.Show("x" + win, "Виграш");
 
@@ -288,6 +306,10 @@ namespace Gambling
             krutytyButton.Image = Properties.Resources.krutity;
         }
 
+        public void Cancel()
+        {
+            canSpin = false;
+        }
         private void krutytyButton_MouseClick(object sender, MouseEventArgs e)
         {
             if (!isSpin)
@@ -317,7 +339,7 @@ namespace Gambling
                 krutytyButton.Image = Properties.Resources.krutity;
         }
 
-        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == (char)Keys.Space)
             {

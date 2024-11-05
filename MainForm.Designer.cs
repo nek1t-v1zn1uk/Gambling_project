@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             MainPanel = new Panel();
+            backButton = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backButton).BeginInit();
             SuspendLayout();
             // 
             // axWindowsMediaPlayer1
@@ -53,12 +55,31 @@
             MainPanel.Size = new Size(250, 125);
             MainPanel.TabIndex = 7;
             // 
+            // backButton
+            // 
+            backButton.BackColor = Color.Transparent;
+            backButton.Image = Properties.Resources.Back_button;
+            backButton.Location = new Point(26, 21);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(75, 75);
+            backButton.SizeMode = PictureBoxSizeMode.StretchImage;
+            backButton.TabIndex = 8;
+            backButton.TabStop = false;
+            backButton.Visible = false;
+            backButton.MouseClick += backButton_MouseClick;
+            backButton.MouseDown += backButton_MouseDown;
+            backButton.MouseEnter += backButton_MouseEnter;
+            backButton.MouseLeave += backButton_MouseLeave;
+            backButton.MouseUp += backButton_MouseUp;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.background;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1114, 500);
+            Controls.Add(backButton);
             Controls.Add(axWindowsMediaPlayer1);
             Controls.Add(MainPanel);
             DoubleBuffered = true;
@@ -69,6 +90,7 @@
             WindowState = FormWindowState.Maximized;
             Shown += MainForm_Shown;
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backButton).EndInit();
             ResumeLayout(false);
         }
 
@@ -76,5 +98,6 @@
 
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private Panel MainPanel;
+        public PictureBox backButton;
     }
 }

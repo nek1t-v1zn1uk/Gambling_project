@@ -36,7 +36,7 @@ namespace Gambling
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
-            backButton.Location = new Point(40, 40);
+            backButton.Location = new Point(35, 35);
             backButton.Size = new Size(75, 75);
 
             //axWindowsMediaPlayer1.Enabled = false;
@@ -80,7 +80,7 @@ namespace Gambling
                 setUserControl(new MainUserControl(Size, this));
                 backButton.Visible = false;
             }
-            else if(MainPanel.Controls[0] is SlotyUserControl  || MainPanel.Controls[0] is FortunkaUserControl 
+            else if (MainPanel.Controls[0] is SlotyUserControl || MainPanel.Controls[0] is FortunkaUserControl
                 || MainPanel.Controls[0] is KostyUserControl)
                 setUserControl(new MenuUserControl(Size, this));
         }
@@ -100,5 +100,6 @@ namespace Gambling
         {
             backButton.Image = Properties.Resources.Back_button;
         }
+
     }
 }

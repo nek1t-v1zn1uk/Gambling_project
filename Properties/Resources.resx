@@ -136,8 +136,11 @@
   <data name="bilshe_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bilshe_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sloty_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sloty_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dices_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dices_4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slots_bars" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slots_bars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="menshe_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menshe_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,6 +181,12 @@
   <data name="background_slots" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_slots.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dices_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dices_6.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dices_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dices_5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menshe_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menshe_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,6 +198,12 @@
   </data>
   <data name="gambling" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gambling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sloty_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sloty_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bilshe_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bilshe_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rahunok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rahunok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,6 +220,9 @@
   <data name="Grape_Slot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Grape_Slot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dices_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dices_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="gambling_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gambling_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -219,9 +237,6 @@
   </data>
   <data name="Back_button_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Back_button_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="kinuti_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kinuti_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sloty_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sloty_preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,8 +292,8 @@
   <data name="wheel of fortune_frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wheel of fortune_frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="slots_bars" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\slots_bars.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kinuti_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kinuti_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,14 +325,17 @@
   <data name="bilshe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bilshe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dices_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dices_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Banana_Blurred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Banana_Blurred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sloty_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sloty_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bilshe_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bilshe_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dices_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dices_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vihid_hovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vihid_hovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,19 +343,22 @@
   <data name="Background_kosti" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background_kosti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dices_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dices_5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dice_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dices_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dices_4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dice_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dices_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dices_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dice_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dices_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dices_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dice_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dices_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dices_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dice_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dice_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -40,6 +40,7 @@
             sumPicture = new PictureBox();
             stavkaPicture = new PictureBox();
             stavkaInputBack = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)moreButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lessButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)playButton).BeginInit();
@@ -102,7 +103,7 @@
             // dice1
             // 
             dice1.BackColor = Color.Transparent;
-            dice1.Image = Properties.Resources.dices_1;
+            dice1.Image = Properties.Resources.dice_6;
             dice1.Location = new Point(518, 232);
             dice1.Name = "dice1";
             dice1.Size = new Size(110, 127);
@@ -113,7 +114,7 @@
             // dice2
             // 
             dice2.BackColor = Color.Transparent;
-            dice2.Image = Properties.Resources.dices_1;
+            dice2.Image = Properties.Resources.dice_6;
             dice2.Location = new Point(725, 232);
             dice2.Name = "dice2";
             dice2.Size = new Size(110, 127);
@@ -129,7 +130,7 @@
             sumLabel.Name = "sumLabel";
             sumLabel.Size = new Size(146, 140);
             sumLabel.TabIndex = 7;
-            sumLabel.Text = "11";
+            sumLabel.Text = "7";
             sumLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // sumInputBack
@@ -146,6 +147,7 @@
             // minusButton
             // 
             minusButton.Font = new Font("Days One", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            minusButton.ForeColor = Color.Black;
             minusButton.Location = new Point(44, 282);
             minusButton.Name = "minusButton";
             minusButton.Size = new Size(45, 45);
@@ -161,6 +163,7 @@
             // plusButton
             // 
             plusButton.Font = new Font("Days One", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            plusButton.ForeColor = Color.Black;
             plusButton.Location = new Point(236, 282);
             plusButton.Name = "plusButton";
             plusButton.Size = new Size(45, 45);
@@ -206,12 +209,21 @@
             stavkaInputBack.TabIndex = 13;
             stavkaInputBack.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(363, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 20);
+            label1.TabIndex = 14;
+            // 
             // KostyUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Background_kosti;
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(label1);
             Controls.Add(stavkaInputBack);
             Controls.Add(stavkaPicture);
             Controls.Add(sumPicture);
@@ -238,6 +250,7 @@
             ((System.ComponentModel.ISupportInitialize)stavkaPicture).EndInit();
             ((System.ComponentModel.ISupportInitialize)stavkaInputBack).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -253,5 +266,6 @@
         private PictureBox sumPicture;
         private PictureBox stavkaPicture;
         private PictureBox stavkaInputBack;
+        private Label label1;
     }
 }

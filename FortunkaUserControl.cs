@@ -86,6 +86,10 @@ namespace Gambling
             Stopwatch stopwatch = new Stopwatch();
             winPos = random.Next(0, 15);
             baseAngle = 360 - (winPos * 360 / 16 + 6 - random.Next(0, 20));
+            if (baseAngle > 360)
+                baseAngle = 360;
+            else if(baseAngle < 0)
+                baseAngle = 0;
             speed = 0;
             byte ok = 0;
             bool b = false;

@@ -7,6 +7,12 @@ namespace Gambling
         public bool isMusic = true;
         public bool isSound = true;
         public int countToJecpot;
+
+        private Font resultFont;
+        private Brush resultBrush;
+        private Size bannerSize;
+        private Point bannerLocation;
+
         public MainForm()
         {
             InitializeComponent();
@@ -18,21 +24,19 @@ namespace Gambling
         public void setUserControl(UserControl control)
         {
             MainPanel.SuspendLayout();
-            UserControl cont = (UserControl)MainPanel.Controls[0];
+            UserControl cont = (UserControl)MainPanel.Controls[1];
             if (cont is FortunkaUserControl f)
                 f.Cancel();
             else if (cont is SlotyUserControl s)
                 s.Cancel();
-            MainPanel.Controls.Clear();
+            MainPanel.Controls.Remove(cont);
             cont.Dispose();
             cont = null;
             MainPanel.Controls.Add(control);
             MainPanel.ResumeLayout();
             backButton.Visible = true;
-            MainPanel.Controls[0].Focus();
+            MainPanel.Controls[1].Focus();
         }
-
-
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
@@ -40,6 +44,20 @@ namespace Gambling
             backButton.Size = new Size(75, 75);
 
             //axWindowsMediaPlayer1.Enabled = false;
+
+            bannerSize = new Size((int)(Width / 3), (int)(Width / 6));
+            bannerLocation = new Point((int)((Width - bannerSize.Width) / 2), (int)((Height - bannerSize.Height) / 2));
+            Result.Size = Size;
+            Result.Location = new Point(0, 0);
+            Result.Visible = false;
+
+            zakrytyButton.Size = new Size((int)(bannerSize.Width / 2.5), (int)(bannerSize.Width / 2.5 / 6.667));
+            zakrytyButton.Location = new Point((int)(bannerLocation.X + (bannerSize.Width - zakrytyButton.Width) / 2),
+                (int)(bannerLocation.Y + bannerSize.Height / 1.2));
+            zakrytyButton.Visible = false;
+
+            resultFont = new Font("Days One", (int)30);
+            resultBrush = new SolidBrush(Color.Black);
 
             MainPanel.Location = new Point(0, 0);
             MainPanel.Size = ClientSize;
@@ -75,15 +93,54 @@ namespace Gambling
 
         public void backButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (MainPanel.Controls[0] is MenuUserControl || MainPanel.Controls[0] is SettingsUserControl)
+            if (MainPanel.Controls[1] is MenuUserControl || MainPanel.Controls[1] is SettingsUserControl)
             {
                 setUserControl(new MainUserControl(Size, this));
                 backButton.Visible = false;
             }
-            else if (MainPanel.Controls[0] is SlotyUserControl || MainPanel.Controls[0] is FortunkaUserControl
-                || MainPanel.Controls[0] is KostyUserControl)
+            else if (MainPanel.Controls[1] is SlotyUserControl || MainPanel.Controls[1] is FortunkaUserControl
+                || MainPanel.Controls[1] is KostyUserControl)
                 setUserControl(new MenuUserControl(Size, this));
+            if (Result.Visible)
+            {
+                zakrytyButton_MouseClick(null, null);
+            }
         }
+
+
+        public void ShowResult(double sum)
+        {
+            Image im = CaptureScreen();
+            string text = "Ваш виграш: " + sum;
+            using (Graphics g = Graphics.FromImage(im))
+            {
+                g.DrawImage(Properties.Resources.Result, bannerSize.Width, bannerSize.Height, bannerLocation.X, bannerLocation.Y);
+                SizeF textSize = g.MeasureString(text, resultFont);
+                g.DrawString(text, resultFont, resultBrush, new Point((int)(bannerLocation.X + (bannerSize.Width - textSize.ToSize().Width) / 2), (int)(bannerLocation.Y + (bannerSize.Height - textSize.Height) / 2.4)));
+            }
+            Result.Image = im;
+            BackgroundImage = im;
+            Result.Visible = true;
+            zakrytyButton.Visible = true;
+        }
+
+        public Image CaptureScreen()
+        {
+            // Отримуємо розміри екрану
+            Rectangle screenBounds = Screen.PrimaryScreen.Bounds;
+
+            // Створюємо новий Bitmap з розмірами екрану
+            Bitmap screenshot = new Bitmap(screenBounds.Width, screenBounds.Height);
+
+            // Копіюємо зображення з екрану
+            using (Graphics g = Graphics.FromImage(screenshot))
+            {
+                g.CopyFromScreen(screenBounds.Location, Point.Empty, screenBounds.Size);
+            }
+
+            return screenshot;
+        }
+
         private void backButton_MouseDown(object sender, MouseEventArgs e)
         {
             backButton.Image = Properties.Resources.Back_button_clicked;
@@ -99,6 +156,32 @@ namespace Gambling
         private void backButton_MouseUp(object sender, MouseEventArgs e)
         {
             backButton.Image = Properties.Resources.Back_button;
+        }
+
+        public void zakrytyButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            zakrytyButton.Visible = false;
+            Result.Visible = false;
+        }
+
+        private void zakrytyButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            zakrytyButton.Image = Properties.Resources.zakrity_closed;
+        }
+
+        private void zakrytyButton_MouseEnter(object sender, EventArgs e)
+        {
+            zakrytyButton.Image = Properties.Resources.zakrity;
+        }
+
+        private void zakrytyButton_MouseLeave(object sender, EventArgs e)
+        {
+            zakrytyButton.Image = Properties.Resources.zakrity_hovered;
+        }
+
+        private void zakrytyButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            zakrytyButton.Image = Properties.Resources.zakrity_hovered;
         }
 
     }

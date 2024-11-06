@@ -132,15 +132,17 @@ namespace Gambling
 
             if (sumValue > sum && !mode)
             {
-                MessageBox.Show(coefficient[sum - 2, 1].ToString());
+                //MessageBox.Show(coefficient[sum - 2, 1].ToString());
+                mainForm.ShowResult(coefficient[sum - 2, 1]);
             }
             else if (sumValue < sum && mode)
             {
-                MessageBox.Show(coefficient[sum - 2, 0].ToString());
+                //MessageBox.Show(coefficient[sum - 2, 0].ToString());
+                mainForm.ShowResult(coefficient[sum - 2, 0]);
             }
             else
             {
-                MessageBox.Show("LOOOOOSER");
+                //MessageBox.Show("LOOOOOSER");
             }
             isSpin = false;
             playButton.Image = Properties.Resources.kinuti; 
@@ -148,15 +150,21 @@ namespace Gambling
 
         private void moreButton_MouseClick(object sender, MouseEventArgs e)
         {
-            mode = false;
-            moreButton.Image = Properties.Resources.bilshe_green;
-            lessButton.Image = Properties.Resources.menshe;
+            if (sum != 12)
+            {
+                mode = false;
+                moreButton.Image = Properties.Resources.bilshe_green;
+                lessButton.Image = Properties.Resources.menshe;
+            }
         }
         private void lessButton_MouseClick(object sender, MouseEventArgs e)
         {
-            mode = true;
-            lessButton.Image = Properties.Resources.menshe_green;
-            moreButton.Image = Properties.Resources.bilshe;
+            if (sum != 2)
+            {
+                mode = true;
+                lessButton.Image = Properties.Resources.menshe_green;
+                moreButton.Image = Properties.Resources.bilshe;
+            }
         }
 
         private void playButton_MouseClick(object sender, MouseEventArgs e)
@@ -237,6 +245,8 @@ namespace Gambling
             {
                 sum++;
                 sumLabel.Text = sum.ToString();
+                if (sum == 12)
+                    lessButton_MouseClick(null, null);
             }
         }
         private void plusButton_MouseDown(object sender, MouseEventArgs e)
@@ -263,6 +273,8 @@ namespace Gambling
             {
                 sum--;
                 sumLabel.Text = sum.ToString();
+                if (sum == 2)
+                    moreButton_MouseClick(null, null);
             }
         }
         private void minusButton_MouseDown(object sender, MouseEventArgs e)
@@ -285,7 +297,11 @@ namespace Gambling
 
         private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Space)
+            if (mainForm.Result.Visible && e.KeyChar == (char)Keys.Space)
+            {
+                mainForm.zakrytyButton_MouseClick(null, null);
+            }
+            else if (e.KeyChar == (char)Keys.Space)
             {
                 playButton_MouseClick(null, null);
             }

@@ -169,7 +169,9 @@ namespace Gambling
                     label1.Text = label1.Text + "\n";
                 }
             }
-            MessageBox.Show(dict[winPos].ToString());
+
+            //MessageBox.Show(dict[winPos].ToString());
+            mainForm.ShowResult(dict[winPos]);
             label1.Text = dict[winPos].ToString() + "  " + baseAngle + "  " + angle;
 
             isSpin = false;
@@ -213,7 +215,11 @@ namespace Gambling
 
         private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Space)
+            if (mainForm.Result.Visible && e.KeyChar == (char)Keys.Space)
+            {
+                mainForm.zakrytyButton_MouseClick(null, null);
+            }
+            else if (e.KeyChar == (char)Keys.Space)
             {
                 krutytyButton_MouseClick(null, null);
             }

@@ -653,6 +653,16 @@ namespace Gambling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Result {
+            get {
+                object obj = ResourceManager.GetObject("Result", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ruletka {
             get {
                 object obj = ResourceManager.GetObject("ruletka", resourceCulture);
@@ -866,6 +876,36 @@ namespace Gambling.Properties {
         internal static System.Drawing.Bitmap wheel_of_fortune_inside {
             get {
                 object obj = ResourceManager.GetObject("wheel of fortune_inside", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zakrity {
+            get {
+                object obj = ResourceManager.GetObject("zakrity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zakrity_closed {
+            get {
+                object obj = ResourceManager.GetObject("zakrity_closed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zakrity_hovered {
+            get {
+                object obj = ResourceManager.GetObject("zakrity_hovered", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

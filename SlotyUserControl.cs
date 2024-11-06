@@ -217,7 +217,7 @@ namespace Gambling
             check();
         }
 
-        public void check()
+        public async void check()
         {
             int win = 1;
             Image img = new Bitmap(sloty.Width, sloty.Height);
@@ -294,13 +294,19 @@ namespace Gambling
             }
 
             sloty.Image = img;
+
+
             if (win == 9)
             {
+                await Task.Delay(500);
                 MessageBox.Show("ДЖЕКПОТ, ДЖЕКПОТ, ХУЙ ТЄ В РОТ", "ДЖЕКПОТ");
                 mainForm.countToJecpot = random.Next(50, 100);
             }
-            else if (win > 1)
-                MessageBox.Show("x" + win, "Виграш");
+            else if (win > 1) {
+                await Task.Delay(500);
+                mainForm.ShowResult(win);
+                //MessageBox.Show("x" + win, "Виграш");
+             }
 
             isSpin = false;
             krutytyButton.Image = Properties.Resources.krutity;
@@ -341,7 +347,11 @@ namespace Gambling
 
         private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)Keys.Space)
+            if (mainForm.Result.Visible && e.KeyChar == (char)Keys.Space)
+            {
+                mainForm.zakrytyButton_MouseClick(null, null);
+            }
+            else if (e.KeyChar == (char)Keys.Space)
             {
                 krutytyButton_MouseClick(null, null);
             }

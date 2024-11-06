@@ -47,7 +47,7 @@ namespace Gambling
 
         private void rakhunokButton_MouseClick(object sender, MouseEventArgs e)
         {
-
+            mainForm.setUserControl(new RakhunokUserControl(Size, mainForm));
         }
 
         private void settingsButton_MouseClick(object sender, MouseEventArgs e)

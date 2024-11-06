@@ -6,13 +6,15 @@ namespace Gambling
     {
         public bool isMusic = true;
         public bool isSound = true;
+
+        public int isRakhunok =0;
+
         public int countToJecpot;
 
         private Font resultFont;
         private Brush resultBrush;
         private Size bannerSize;
         private Point bannerLocation;
-
         public MainForm()
         {
             InitializeComponent();
@@ -65,7 +67,6 @@ namespace Gambling
             //SlotyUserControl control = new SlotyUserControl(MainPanel.Size, this);
             MainPanel.Controls.Add(control);
 
-
             //string videoPath = System.IO.Path.Combine(Application.StartupPath, "Resources", "red dice.mp4");
 
             //// Check if the video file exists before playing
@@ -107,11 +108,10 @@ namespace Gambling
             }
         }
 
-
         public void ShowResult(double sum)
         {
             Image im = CaptureScreen();
-            string text = "Ваш виграш: " + sum;
+            string text = "Г‚Г Гё ГўГЁГЈГ°Г Гё: " + sum;
             using (Graphics g = Graphics.FromImage(im))
             {
                 g.DrawImage(Properties.Resources.Result, bannerSize.Width, bannerSize.Height, bannerLocation.X, bannerLocation.Y);
@@ -126,13 +126,13 @@ namespace Gambling
 
         public Image CaptureScreen()
         {
-            // Отримуємо розміри екрану
+            // ГЋГІГ°ГЁГ¬ГіВєГ¬Г® Г°Г®Г§Г¬ВіГ°ГЁ ГҐГЄГ°Г Г­Гі
             Rectangle screenBounds = Screen.PrimaryScreen.Bounds;
 
-            // Створюємо новий Bitmap з розмірами екрану
+            // Г‘ГІГўГ®Г°ГѕВєГ¬Г® Г­Г®ГўГЁГ© Bitmap Г§ Г°Г®Г§Г¬ВіГ°Г Г¬ГЁ ГҐГЄГ°Г Г­Гі
             Bitmap screenshot = new Bitmap(screenBounds.Width, screenBounds.Height);
 
-            // Копіюємо зображення з екрану
+            // ГЉГ®ГЇВіГѕВєГ¬Г® Г§Г®ГЎГ°Г Г¦ГҐГ­Г­Гї Г§ ГҐГЄГ°Г Г­Гі
             using (Graphics g = Graphics.FromImage(screenshot))
             {
                 g.CopyFromScreen(screenBounds.Location, Point.Empty, screenBounds.Size);

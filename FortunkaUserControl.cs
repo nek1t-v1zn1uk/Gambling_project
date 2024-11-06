@@ -47,6 +47,8 @@ namespace Gambling
             {15, 0}
         };
 
+        private bool canSpin = true;
+
         public FortunkaUserControl(Size size, MainForm form)
         {
             InitializeComponent();
@@ -84,6 +86,10 @@ namespace Gambling
             Stopwatch stopwatch = new Stopwatch();
             winPos = random.Next(0, 15);
             baseAngle = 360 - (winPos * 360 / 16 + 6 - random.Next(0, 20));
+            if (baseAngle > 360)
+                baseAngle = 360;
+            else if(baseAngle < 0)
+                baseAngle = 0;
             speed = 0;
             byte ok = 0;
             bool b = false;
@@ -94,6 +100,8 @@ namespace Gambling
                 rotatedWheel.SetResolution(wheelImage.HorizontalResolution, wheelImage.VerticalResolution);
                 while (Math.Abs(angle - baseAngle) >= 1.5 || speed !=1 || ok < 4)
                 {
+                    if (canSpin == false)
+                        return;
                     stopwatch.Restart();
 
                     if (angle > 360)
@@ -161,12 +169,20 @@ namespace Gambling
                     label1.Text = label1.Text + "\n";
                 }
             }
-            MessageBox.Show(dict[winPos].ToString());
+
+            //MessageBox.Show(dict[winPos].ToString());
+            mainForm.ShowResult(dict[winPos]);
             label1.Text = dict[winPos].ToString() + "  " + baseAngle + "  " + angle;
 
             isSpin = false;
             krutytyButton.Image = Properties.Resources.krutity;
         }
+
+        public void Cancel()
+        {
+            canSpin = false;
+        }
+
 
         private void krutytyButton_MouseClick(object sender, MouseEventArgs e)
         {
@@ -197,9 +213,13 @@ namespace Gambling
                 krutytyButton.Image = Properties.Resources.krutity;
         }
 
-        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Space)
+            if (mainForm.Result.Visible && e.KeyChar == (char)Keys.Space)
+            {
+                mainForm.zakrytyButton_MouseClick(null, null);
+            }
+            else if (e.KeyChar == (char)Keys.Space)
             {
                 krutytyButton_MouseClick(null, null);
             }

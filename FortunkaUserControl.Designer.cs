@@ -93,7 +93,7 @@
             DoubleBuffered = true;
             Name = "FortunkaUserControl";
             Size = new Size(1144, 594);
-            KeyPress += SlotyUserControl_KeyPress;
+            KeyPress += UserControl_KeyPress;
             ((System.ComponentModel.ISupportInitialize)krutytyButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)wheel).EndInit();
             ResumeLayout(false);

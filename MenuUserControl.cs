@@ -103,7 +103,7 @@ namespace Gambling
 
         private void kostyButton_MouseClick(object sender, MouseEventArgs e)
         {
-
+            mainForm.setUserControl(new KostyUserControl(Size, mainForm));
         }
 
 
@@ -178,7 +178,7 @@ namespace Gambling
             timer1.Start();
         }
 
-        private void SlotyUserControl_KeyPress(object sender, KeyPressEventArgs e)
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
             {

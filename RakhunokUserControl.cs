@@ -88,6 +88,7 @@ namespace Gambling
 
                 Font = new Font(privateFonts.Families[0], 20.0F, FontStyle.Regular),
                 ForeColor = Color.FromArgb(46, 46, 46),
+                BackColor = ColorTranslator.FromHtml("#f7f7f7"),
             };
 
             
@@ -116,6 +117,7 @@ namespace Gambling
             {
                 e.Handled = true; 
             }
+            UserControl_KeyPress(sender, e);
         }
 
         private void pidtverdityButton_MouseDown(object sender, MouseEventArgs e)
@@ -136,6 +138,18 @@ namespace Gambling
         private void pidtverdityButton_MouseUp(object sender, MouseEventArgs e)
         {
             pidtverdityButton.BackgroundImage = Properties.Resources.pidtverdity;
+        }
+
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                pidtverdityButton_MouseClick(null, null);
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                mainForm.backButton_MouseClick(null, null);
+            }
         }
 
     }

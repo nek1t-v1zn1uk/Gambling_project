@@ -94,7 +94,8 @@ namespace Gambling
 
         public void backButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (MainPanel.Controls[1] is MenuUserControl || MainPanel.Controls[1] is SettingsUserControl)
+            if (MainPanel.Controls[1] is MenuUserControl || MainPanel.Controls[1] is SettingsUserControl
+                || MainPanel.Controls[1] is RakhunokUserControl)
             {
                 setUserControl(new MainUserControl(Size, this));
                 backButton.Visible = false;
@@ -126,18 +127,12 @@ namespace Gambling
 
         public Image CaptureScreen()
         {
-            // Îòðèìóºìî ðîçì³ðè åêðàíó
             Rectangle screenBounds = Screen.PrimaryScreen.Bounds;
-
-            // Ñòâîðþºìî íîâèé Bitmap ç ðîçì³ðàìè åêðàíó
             Bitmap screenshot = new Bitmap(screenBounds.Width, screenBounds.Height);
-
-            // Êîï³þºìî çîáðàæåííÿ ç åêðàíó
             using (Graphics g = Graphics.FromImage(screenshot))
             {
                 g.CopyFromScreen(screenBounds.Location, Point.Empty, screenBounds.Size);
             }
-
             return screenshot;
         }
 

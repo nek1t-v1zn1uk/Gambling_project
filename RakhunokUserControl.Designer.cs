@@ -86,6 +86,7 @@
             DoubleBuffered = true;
             Name = "RakhunokUserControl";
             Size = new Size(971, 592);
+            KeyPress += UserControl_KeyPress;
             ((System.ComponentModel.ISupportInitialize)pidtverdityButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureTextBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)pidtverdityPicture).EndInit();

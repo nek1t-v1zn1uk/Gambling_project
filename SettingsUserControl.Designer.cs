@@ -83,6 +83,7 @@
             DoubleBuffered = true;
             Name = "SettingsUserControl";
             Size = new Size(1021, 505);
+            KeyPress += UserControl_KeyPress;
             ((System.ComponentModel.ISupportInitialize)SomeText).EndInit();
             ((System.ComponentModel.ISupportInitialize)musicButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)soundButton).EndInit();

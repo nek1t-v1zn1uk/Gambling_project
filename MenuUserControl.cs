@@ -93,17 +93,17 @@ namespace Gambling
 
         private void slotyButton_MouseClick(object sender, MouseEventArgs e)
         {
-            mainForm.setUserControl(new MainUserControl(Size, mainForm));
+            mainForm.setUserControl(new SlotyUserControl(Size, mainForm));
         }
 
         private void ruletkaButton_MouseClick(object sender, MouseEventArgs e)
         {
-
+            mainForm.setUserControl(new FortunkaUserControl(Size, mainForm));
         }
 
         private void kostyButton_MouseClick(object sender, MouseEventArgs e)
         {
-
+            mainForm.setUserControl(new KostyUserControl(Size, mainForm));
         }
 
 
@@ -178,5 +178,12 @@ namespace Gambling
             timer1.Start();
         }
 
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                mainForm.backButton_MouseClick(null, null);
+            }
+        }
     }
 }

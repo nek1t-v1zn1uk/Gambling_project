@@ -33,6 +33,15 @@ namespace Gambling
             soundButton.Size = musicButton.Size;
             soundButton.Location = new Point(musicButton.Location.X, (int)(Height / 1.91));
 
+            if (mainForm.isMusic)
+                musicButton.Image = Properties.Resources.sound;
+            else
+                musicButton.Image = Properties.Resources.no_sound;
+
+            if (mainForm.isSound)
+                soundButton.Image = Properties.Resources.sound;
+            else
+                soundButton.Image = Properties.Resources.no_sound;
         }
 
         private void musicButton_MouseClick(object sender, MouseEventArgs e)
@@ -51,6 +60,14 @@ namespace Gambling
                 soundButton.Image = Properties.Resources.sound;
             else
                 soundButton.Image = Properties.Resources.no_sound;
+        }
+
+        private void UserControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                mainForm.backButton_MouseClick(null, null);
+            }
         }
     }
 }

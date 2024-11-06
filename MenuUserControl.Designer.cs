@@ -120,6 +120,7 @@
             DoubleBuffered = true;
             Name = "MenuUserControl";
             Size = new Size(1113, 650);
+            KeyPress += UserControl_KeyPress;
             ((System.ComponentModel.ISupportInitialize)kostyButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)ruletkaButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)slotyButton).EndInit();

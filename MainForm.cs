@@ -112,7 +112,7 @@ namespace Gambling
         public void ShowResult(double sum)
         {
             Image im = CaptureScreen();
-            string text = "Âàø âèãðàø: " + sum;
+            string text = "Ваш виграш: " + sum;
             using (Graphics g = Graphics.FromImage(im))
             {
                 g.DrawImage(Properties.Resources.Result, bannerSize.Width, bannerSize.Height, bannerLocation.X, bannerLocation.Y);

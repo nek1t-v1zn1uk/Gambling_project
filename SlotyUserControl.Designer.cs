@@ -30,11 +30,12 @@
         {
             sloty = new PictureBox();
             krutytyButton = new PictureBox();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
+            stavkaInputBack = new PictureBox();
+            stavkaPicture = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)sloty).BeginInit();
             ((System.ComponentModel.ISupportInitialize)krutytyButton).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)stavkaInputBack).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)stavkaPicture).BeginInit();
             SuspendLayout();
             // 
             // sloty
@@ -63,22 +64,27 @@
             krutytyButton.MouseLeave += krutytyButton_MouseLeave;
             krutytyButton.MouseUp += krutytyButton_MouseUp;
             // 
-            // label1
+            // stavkaInputBack
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(42, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(18, 20);
-            label1.TabIndex = 2;
-            label1.Text = "#";
+            stavkaInputBack.BackColor = Color.Transparent;
+            stavkaInputBack.Image = Properties.Resources.input_back;
+            stavkaInputBack.Location = new Point(782, 573);
+            stavkaInputBack.Name = "stavkaInputBack";
+            stavkaInputBack.Size = new Size(270, 54);
+            stavkaInputBack.SizeMode = PictureBoxSizeMode.StretchImage;
+            stavkaInputBack.TabIndex = 15;
+            stavkaInputBack.TabStop = false;
             // 
-            // pictureBox1
+            // stavkaPicture
             // 
-            pictureBox1.Location = new Point(107, 6);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(140, 647);
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            stavkaPicture.BackColor = Color.Transparent;
+            stavkaPicture.Image = Properties.Resources.stavka;
+            stavkaPicture.Location = new Point(782, 527);
+            stavkaPicture.Name = "stavkaPicture";
+            stavkaPicture.Size = new Size(270, 40);
+            stavkaPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+            stavkaPicture.TabIndex = 14;
+            stavkaPicture.TabStop = false;
             // 
             // SlotyUserControl
             // 
@@ -86,8 +92,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.background_slots;
             BackgroundImageLayout = ImageLayout.Stretch;
-            Controls.Add(pictureBox1);
-            Controls.Add(label1);
+            Controls.Add(stavkaInputBack);
+            Controls.Add(stavkaPicture);
             Controls.Add(krutytyButton);
             Controls.Add(sloty);
             DoubleBuffered = true;
@@ -96,16 +102,16 @@
             KeyPress += UserControl_KeyPress;
             ((System.ComponentModel.ISupportInitialize)sloty).EndInit();
             ((System.ComponentModel.ISupportInitialize)krutytyButton).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)stavkaInputBack).EndInit();
+            ((System.ComponentModel.ISupportInitialize)stavkaPicture).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private PictureBox sloty;
         private PictureBox krutytyButton;
-        private Label label1;
-        private PictureBox pictureBox1;
+        private PictureBox stavkaInputBack;
+        private PictureBox stavkaPicture;
     }
 }

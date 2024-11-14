@@ -74,8 +74,7 @@ namespace Gambling
             wheel.Size = new Size((int)(Width/2.656), (int)(Width / 2.656));
             wheel.Location = new Point((int)(Width / 3.211), (int)(Height / 10.8));
 
-            int x = (int)(Width / 21.517),
-                w = (int)(Width / 4.244);
+            int w = (int)(Width / 4.244);
             stavkaPicture.Size = new Size(w, (int)(w / 6.75));
             stavkaPicture.Location = new Point((Width - wheel.Width) / 3 * 4 - stavkaPicture.Width / 2, (int)(Height/3));
             stavkaInputBack.Size = new Size(w, (int)(w / 5));

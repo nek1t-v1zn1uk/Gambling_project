@@ -17,7 +17,9 @@ namespace Gambling
     {
         public MainForm mainForm;
 
-        private int x, y, slotW, slotH;
+        private TransparentTextBox transparentTextBox;
+
+        private int x, y, slotW, slotH, stavka;
         private int[,] barabans = new int[3, 3];
         private Random random = new Random();
 
@@ -64,7 +66,15 @@ namespace Gambling
 
             krutytyButton.Width = (int)(Width / 4.267);
             krutytyButton.Height = (int)(krutytyButton.Width / 3.6);
-            krutytyButton.Location = new Point((int)((Width - krutytyButton.Width) / 2), (int)(Height / 1.2));
+            krutytyButton.Location = new Point((int)((Width / 2 - krutytyButton.Width - 20)), (int)(Height / 1.2));
+
+            int w = (int)(Width / 4.244);
+            stavkaPicture.Size = new Size(w, (int)(w / 6.75));
+            stavkaPicture.Location = new Point((int)((Width / 2 + 20)), (int)(Height / 1.2) - 25);
+            stavkaInputBack.Size = new Size(w, (int)(w / 5));
+            stavkaInputBack.Location = new Point(stavkaPicture.Location.X, stavkaPicture.Location.Y + stavkaPicture.Height + 15);
+
+            AddTransparentTextBox();
 
             x = y = (int)(sloty.Width / 9.23);
 
@@ -97,10 +107,52 @@ namespace Gambling
             mainForm.countToJecpot = random.Next(50, 100);
         }
 
+        private void AddTransparentTextBox()
+        {
+
+            transparentTextBox = new TransparentTextBox
+            {
+                Text = "",
+
+                ForeColor = Color.FromArgb(46, 46, 46),
+                BackColor = ColorTranslator.FromHtml("#e3e3e3"),
+                MaxLength = 7
+            };
+
+            transparentTextBox.Location = new Point((int)(stavkaInputBack.Location.X + (stavkaInputBack.Width / 12)),
+                stavkaInputBack.Location.Y + 2);
+            transparentTextBox.Size = new Size((int)(stavkaInputBack.Width / 6 * 5), stavkaInputBack.Height);
+            transparentTextBox.Font = new Font("Days One", (int)(transparentTextBox.Height * 2));
+
+            transparentTextBox.KeyPress += TransparentTextBox_KeyPress;
+            transparentTextBox.Leave += (s, e) => CheckStavka();
+
+            this.Controls.Add(transparentTextBox);
+            transparentTextBox.BringToFront();
+        }
+
+        private void TransparentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+            UserControl_KeyPress(sender, e);
+        }
+
+        private void CheckStavka()
+        {
+            if (transparentTextBox.Text != "" && int.Parse(transparentTextBox.Text) > mainForm.rakhunok)
+            {
+                transparentTextBox.Text = Math.Floor(mainForm.rakhunok).ToString();
+            }
+        }
+
         public async void spin()
         {
             isSpin = true;
-            label1.Text = "#";
+            transparentTextBox.Enabled = false;
+            Focus();
             yy = 0;
             speed = 100;
             Stopwatch stopwatch = new Stopwatch();
@@ -165,13 +217,6 @@ namespace Gambling
                     }
                 }
 
-                Image im = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                using (Graphics grd = Graphics.FromImage(im))
-                {
-                    grd.DrawImage(bufferImage, 0, 0, pictureBox1.Width, pictureBox1.Height);
-                }
-                pictureBox1.Image = im;
-
                 Image img = new Bitmap(sloty.Width, sloty.Height);
                 while (speed > 0)
                 {
@@ -208,9 +253,6 @@ namespace Gambling
                     {
                         await Task.Delay(delayTime);
                     }
-
-                    label1.Text = label1.Text + " " + elapsed;
-                    label1.Text = label1.Text + "\n";
                 }
             }
 
@@ -299,16 +341,16 @@ namespace Gambling
             if (win == 9)
             {
                 await Task.Delay(500);
-                MessageBox.Show("ДЖЕКПОТ, ДЖЕКПОТ, ХУЙ ТЄ В РОТ", "ДЖЕКПОТ");
+                mainForm.ShowResult(stavka * 100);
                 mainForm.countToJecpot = random.Next(50, 100);
             }
             else if (win > 1) {
                 await Task.Delay(500);
-                mainForm.ShowResult(win);
-                //MessageBox.Show("x" + win, "Виграш");
+                mainForm.ShowResult(stavka * win);
              }
 
             isSpin = false;
+            transparentTextBox.Enabled = true;
             krutytyButton.Image = Properties.Resources.krutity;
         }
 
@@ -318,8 +360,11 @@ namespace Gambling
         }
         private void krutytyButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!isSpin)
+            CheckStavka();
+            if (!isSpin && transparentTextBox.Text != "" && int.Parse(transparentTextBox.Text) > 0)
             {
+                stavka = int.Parse(transparentTextBox.Text);
+                mainForm.ChangeRakhunok(-stavka);
                 spin();
                 krutytyButton.Image = Properties.Resources.krutity_clicked;
             }

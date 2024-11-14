@@ -124,10 +124,10 @@
             BackgroundImage = Properties.Resources.background;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1114, 500);
+            Controls.Add(axWindowsMediaPlayer1);
             Controls.Add(rakhunokLabel);
             Controls.Add(backButton);
             Controls.Add(zakrytyButton);
-            Controls.Add(axWindowsMediaPlayer1);
             Controls.Add(MainPanel);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;

@@ -36,12 +36,14 @@
             zakrytyButton = new PictureBox();
             rakhunokLabel = new Label();
             coinPicture = new PictureBox();
+            block = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Result).BeginInit();
             ((System.ComponentModel.ISupportInitialize)backButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)zakrytyButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)coinPicture).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)block).BeginInit();
             SuspendLayout();
             // 
             // axWindowsMediaPlayer1
@@ -130,6 +132,14 @@
             coinPicture.TabIndex = 10;
             coinPicture.TabStop = false;
             // 
+            // block
+            // 
+            block.Location = new Point(174, 125);
+            block.Name = "block";
+            block.Size = new Size(125, 62);
+            block.TabIndex = 11;
+            block.TabStop = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -138,6 +148,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1114, 500);
             Controls.Add(axWindowsMediaPlayer1);
+            Controls.Add(block);
             Controls.Add(coinPicture);
             Controls.Add(rakhunokLabel);
             Controls.Add(backButton);
@@ -156,6 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)backButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)zakrytyButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)coinPicture).EndInit();
+            ((System.ComponentModel.ISupportInitialize)block).EndInit();
             ResumeLayout(false);
         }
 
@@ -168,5 +180,6 @@
         public PictureBox zakrytyButton;
         private Label rakhunokLabel;
         private PictureBox coinPicture;
+        private PictureBox block;
     }
 }

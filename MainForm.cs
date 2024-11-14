@@ -54,7 +54,9 @@ namespace Gambling
             backButton.Location = new Point(35, 35);
             backButton.Size = new Size(75, 75);
 
-            //axWindowsMediaPlayer1.Enabled = false;
+            axWindowsMediaPlayer1.Enabled = false;
+            block.Size = Size;
+            block.Location = new Point(0, 0);
 
             bannerSize = new Size((int)(Width / 3), (int)(Width / 6));
             bannerLocation = new Point((int)((Width - bannerSize.Width) / 2), (int)((Height - bannerSize.Height) / 2));
@@ -97,6 +99,7 @@ namespace Gambling
                 await Task.Delay(5000);
 
                 // Stop the video after 5 seconds
+                block.Dispose();
                 axWindowsMediaPlayer1.Ctlcontrols.stop();
                 axWindowsMediaPlayer1.Visible = false;
             }

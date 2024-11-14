@@ -15,6 +15,8 @@ namespace Gambling
     {
         public MainForm mainForm;
 
+        private TransparentTextBox transparentTextBox;
+
         private bool isSpin = false;
         private bool mode = false; //false - more; true - less
         private int dice1Value, dice2Value, sum = 7, sumValue, stavka;
@@ -82,11 +84,52 @@ namespace Gambling
             playButton.Location = new Point(x, (int)(Height / 1.281));
             playButton.Size = moreButton.Size;
 
-
+            AddTransparentTextBox();
 
             sumLabel.BackColor = ColorTranslator.FromHtml("#e3e3e3");
             plusButton.BackColor = ColorTranslator.FromHtml("#e3e3e3");
             minusButton.BackColor = ColorTranslator.FromHtml("#e3e3e3");
+        }
+
+        private void AddTransparentTextBox()
+        {
+
+            transparentTextBox = new TransparentTextBox
+            {
+                Text = "",
+
+                ForeColor = Color.FromArgb(46, 46, 46),
+                BackColor = ColorTranslator.FromHtml("#e3e3e3"),
+                MaxLength = 7
+            };
+
+            transparentTextBox.Location = new Point((int)(stavkaInputBack.Location.X+(stavkaInputBack.Width / 12)), 
+                stavkaInputBack.Location.Y + 2);
+            transparentTextBox.Size = new Size((int)(stavkaInputBack.Width / 6 * 5), stavkaInputBack.Height);
+            transparentTextBox.Font = new Font("Days One", (int)(transparentTextBox.Height*2));
+
+            transparentTextBox.KeyPress += TransparentTextBox_KeyPress;
+            transparentTextBox.Leave += (s, e) => CheckStavka();
+
+            this.Controls.Add(transparentTextBox);
+            transparentTextBox.BringToFront();
+        }
+
+        private void TransparentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+            UserControl_KeyPress(sender, e);
+        }
+
+        private void CheckStavka()
+        {
+            if(transparentTextBox.Text != "" && int.Parse(transparentTextBox.Text) > mainForm.rakhunok)
+            {
+                transparentTextBox.Text = Math.Floor(mainForm.rakhunok).ToString();
+            }
         }
 
         private async void spin()
@@ -136,20 +179,18 @@ namespace Gambling
 
             if (sumValue > sum && !mode)
             {
-                //MessageBox.Show(coefficient[sum - 2, 1].ToString());
-                mainForm.ShowResult(coefficient[sum - 2, 1]);
+                mainForm.ChangeRakhunok(coefficient[sum - 2, 1] * stavka);
+                mainForm.ShowResult(coefficient[sum - 2, 1] * stavka);
             }
             else if (sumValue < sum && mode)
             {
-                //MessageBox.Show(coefficient[sum - 2, 0].ToString());
-                mainForm.ShowResult(coefficient[sum - 2, 0]);
-            }
-            else
-            {
-                //MessageBox.Show("LOOOOOSER");
+                mainForm.ChangeRakhunok(coefficient[sum - 2, 0] * stavka);
+                mainForm.ShowResult(coefficient[sum - 2, 0] * stavka);
             }
             isSpin = false;
+            transparentTextBox.Enabled = true;
             playButton.Image = Properties.Resources.kinuti; 
+            this.Focus();
         }
 
         public void Cancel()
@@ -177,9 +218,14 @@ namespace Gambling
 
         private void playButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!isSpin)
+            CheckStavka();
+            if (!isSpin && int.Parse(transparentTextBox.Text)>0)
             {
+                stavka = int.Parse(transparentTextBox.Text);
+                mainForm.ChangeRakhunok(-stavka);
                 isSpin = true;
+                transparentTextBox.Enabled = false;
+                this.Focus();
                 spin();
                 playButton.Image = Properties.Resources.kinuti_clicked;
             }

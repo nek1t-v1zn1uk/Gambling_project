@@ -342,11 +342,13 @@ namespace Gambling
             {
                 await Task.Delay(500);
                 mainForm.ShowResult(stavka * 100);
+                mainForm.ChangeRakhunok(stavka * 100);
                 mainForm.countToJecpot = random.Next(50, 100);
             }
             else if (win > 1) {
                 await Task.Delay(500);
                 mainForm.ShowResult(stavka * win);
+                mainForm.ChangeRakhunok(stavka * win);
              }
 
             isSpin = false;

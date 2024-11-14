@@ -80,103 +80,67 @@ namespace Gambling
 
         private async void spin()
         {
-            label1.Text = ":";
-
             isSpin = true;
-            Stopwatch stopwatch = new Stopwatch();
             winPos = random.Next(0, 15);
             baseAngle = 360 - (winPos * 360 / 16 + 6 - random.Next(0, 20));
-            if (baseAngle > 360)
-                baseAngle = 360;
-            else if(baseAngle < 0)
-                baseAngle = 0;
-            speed = 0;
-            byte ok = 0;
-            bool b = false;
-            Bitmap bufferImage = new Bitmap(wheel.Width, wheel.Height);
-            using (Graphics g = Graphics.FromImage(bufferImage))
-            {
-                Bitmap rotatedWheel = new Bitmap(wheelImage.Width, wheelImage.Height);
-                rotatedWheel.SetResolution(wheelImage.HorizontalResolution, wheelImage.VerticalResolution);
-                while (Math.Abs(angle - baseAngle) >= 1.5 || speed !=1 || ok < 4)
-                {
-                    if (canSpin == false)
-                        return;
-                    stopwatch.Restart();
+            baseAngle = baseAngle % 360;  // Корекція кута, щоб він не перевищував 360
+            double maxSpeed = 20;
+            double acceleration = 0.5;
+            double decelerationStartAngle = baseAngle - 60; // Почнемо гальмувати за 60 градусів до базового кута
+            int fullRotations = 3; // Кількість повних обертів перед зупинкою
+            angle = 0;
+            speed = 1;  // Початкова швидкість
 
-                    if (angle > 360)
+            Bitmap bufferImage = new Bitmap(wheel.Width, wheel.Height);
+
+            using (Graphics gBuffer = Graphics.FromImage(bufferImage))
+            {
+                gBuffer.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+                gBuffer.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+
+                while (fullRotations > 0 || Math.Abs(angle - baseAngle) >= 1.5)
+                {
+                    // Плавне прискорення до maxSpeed
+                    if (fullRotations > 0 && speed < maxSpeed)
+                    {
+                        speed += acceleration;
+                    }
+                    // Плавне зменшення швидкості при наближенні до цільового кута
+                    else if (fullRotations <= 0 && speed > 1 && angle >= decelerationStartAngle)
+                    {
+                        speed -= acceleration;
+                        if (speed < 1) speed = 1; // Обмеження мінімальної швидкості
+                    }
+
+                    // Оновлюємо кут повороту
+                    angle += speed;
+                    if (angle >= 360)
                     {
                         angle -= 360;
-                        if (!b && ok<4)
-                            ok++;
-                        b = false;
+                        fullRotations--; // Зменшуємо кількість обертів
                     }
 
-                    if (!b && ok<4 && angle >= baseAngle)
-                    {
-                        ok++;
-                        b = true;
-                    }
+                    // Малюємо обертання в bufferImage
+                    gBuffer.Clear(Color.Transparent);
+                    gBuffer.TranslateTransform(bufferImage.Width / 2f, bufferImage.Height / 2f);
+                    gBuffer.RotateTransform((float)angle);
+                    gBuffer.TranslateTransform(-wheelImage.Width / 2f, -wheelImage.Height / 2f);
+                    gBuffer.DrawImage(wheelImage, 0, 0, wheel.Width, wheel.Height);
+                    gBuffer.ResetTransform();
+                    gBuffer.DrawImage(frame, 0, 0, wheel.Width, wheel.Height);
 
-
-                    if (ok == 4 && (baseAngle - angle <= 60 && baseAngle - angle > 35 || 360 + baseAngle - angle <= 60 && 360 + baseAngle - angle > 35))
-                    {
-                        ok = 5;
-                    }
-
-
-                    g.Clear(Color.Transparent);
-
-                    using (Graphics gr = Graphics.FromImage(rotatedWheel))
-                    {
-                        // Центр координатної системи встановлюємо у центр зображення
-                        gr.TranslateTransform((float)wheelImage.Width / 2, (float)wheelImage.Height / 2);
-
-                        // Повертаємо на вказаний кут
-                        gr.RotateTransform((float)(angle));
-
-                        // Повертаємо координатну систему на початкову точку
-                        gr.TranslateTransform(-(float)wheelImage.Width / 2, -(float)wheelImage.Height / 2);
-
-                        // Малюємо вихідне зображення на новому з поворотом
-                        gr.DrawImage(wheelImage, new Point(0, 0));
-                    }
-
-                    g.DrawImage(rotatedWheel, 0, 0, wheel.Width, wheel.Height);
-                    g.DrawImage(frame, 0, 0, wheel.Width, wheel.Height);
-
-
-                    wheel.Image = bufferImage;
-
-
-                    if(ok<4 && speed < 20)
-                        speed += 1;
-                    else if (ok==5 && speed - 0.5 >= 1)
-                        speed -= 0.5;
-                    label2.Text = speed + "  " + ok + "  " + (baseAngle-angle);
-
-                    angle += speed;
-
-                    stopwatch.Stop();
-                    int elapsed = (int)stopwatch.ElapsedMilliseconds;
-                    int delayTime = 60 - elapsed;
-                    if (delayTime > 0)
-                    {
-                        await Task.Delay(delayTime);
-                    }
-
-                    label1.Text = label1.Text + " " + elapsed;
-                    label1.Text = label1.Text + "\n";
+                    // Оновлюємо зображення лише один раз на кожен цикл
+                    wheel.Image = (Bitmap)bufferImage.Clone();
+                    wheel.Invalidate();
+                    await Task.Delay(16); // Контроль FPS (приблизно 60 кадрів на секунду)
                 }
             }
 
-            //MessageBox.Show(dict[winPos].ToString());
-            mainForm.ShowResult(dict[winPos]);
-            label1.Text = dict[winPos].ToString() + "  " + baseAngle + "  " + angle;
-
+            mainForm.ShowResult(dict[winPos]); // Показуємо результат
             isSpin = false;
-            krutytyButton.Image = Properties.Resources.krutity;
+            krutytyButton.Image = Properties.Resources.krutity; // Відновлюємо кнопку
         }
+
 
         public void Cancel()
         {

@@ -219,7 +219,7 @@ namespace Gambling
         private void playButton_MouseClick(object sender, MouseEventArgs e)
         {
             CheckStavka();
-            if (!isSpin && int.Parse(transparentTextBox.Text)>0)
+            if (!isSpin && transparentTextBox.Text != "" && int.Parse(transparentTextBox.Text)>0)
             {
                 stavka = int.Parse(transparentTextBox.Text);
                 mainForm.ChangeRakhunok(-stavka);

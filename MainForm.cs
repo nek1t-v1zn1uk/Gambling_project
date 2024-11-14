@@ -126,7 +126,7 @@ namespace Gambling
         public bool ChangeRakhunok(double s)
         {
             rakhunok += Math.Round(s, 2);
-            rakhunok = Math.Round(rakhunok);
+            rakhunok = Math.Round(rakhunok, 2);
             if (rakhunok<0)
                 return false;
 
@@ -138,6 +138,7 @@ namespace Gambling
 
         public void ShowResult(double sum)
         {
+            sum = Math.Round(sum, 2);
             Image im = CaptureScreen();
             string text = "Ваш виграш: " + sum;
             using (Graphics g = Graphics.FromImage(im))

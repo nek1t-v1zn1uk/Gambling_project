@@ -199,7 +199,7 @@ namespace Gambling
         }
         private void moreButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (sum != 12)
+            if (!isSpin && sum != 12)
             {
                 mode = false;
                 moreButton.Image = Properties.Resources.bilshe_green;
@@ -208,7 +208,7 @@ namespace Gambling
         }
         private void lessButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (sum != 2)
+            if (!isSpin && sum != 2)
             {
                 mode = true;
                 lessButton.Image = Properties.Resources.menshe_green;
@@ -295,7 +295,7 @@ namespace Gambling
         public void plusButton_MouseClick(object sender, MouseEventArgs e)
         {
             plusButton.ForeColor = Color.Gray;
-            if (sum < 12)
+            if (!isSpin && sum < 12)
             {
                 sum++;
                 sumLabel.Text = sum.ToString();
@@ -323,7 +323,7 @@ namespace Gambling
         public void minusButton_MouseClick(object sender, MouseEventArgs e)
         {
             minusButton.ForeColor = Color.Gray;
-            if (sum > 2)
+            if (!isSpin && sum > 2)
             {
                 sum--;
                 sumLabel.Text = sum.ToString();

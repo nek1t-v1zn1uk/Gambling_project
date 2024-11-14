@@ -71,8 +71,10 @@ namespace Gambling
             resultBrush = new SolidBrush(Color.Black);
 
             rakhunokLabel.Size = new Size(700, 75);
-            rakhunokLabel.Location = new Point(Width-rakhunokLabel.Width-rakhunokLabel.Height, 
+            rakhunokLabel.Location = new Point((int)(Width-rakhunokLabel.Width-rakhunokLabel.Height * 1.5), 
                 (int)(rakhunokLabel.Height / 2));
+            coinPicture.Size = new Size(rakhunokLabel.Height, rakhunokLabel.Height);
+            coinPicture.Location = new Point((int)(Width - rakhunokLabel.Height * 1.5), (int)(rakhunokLabel.Height / 2));
 
 
             MainPanel.Location = new Point(0, 0);

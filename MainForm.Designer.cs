@@ -35,11 +35,13 @@
             backButton = new PictureBox();
             zakrytyButton = new PictureBox();
             rakhunokLabel = new Label();
+            coinPicture = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Result).BeginInit();
             ((System.ComponentModel.ISupportInitialize)backButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)zakrytyButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)coinPicture).BeginInit();
             SuspendLayout();
             // 
             // axWindowsMediaPlayer1
@@ -117,6 +119,17 @@
             rakhunokLabel.Text = "0000";
             rakhunokLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // coinPicture
+            // 
+            coinPicture.BackColor = Color.Transparent;
+            coinPicture.Image = Properties.Resources.reynolds_coin;
+            coinPicture.Location = new Point(1015, 149);
+            coinPicture.Name = "coinPicture";
+            coinPicture.Size = new Size(70, 70);
+            coinPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+            coinPicture.TabIndex = 10;
+            coinPicture.TabStop = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -125,6 +138,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1114, 500);
             Controls.Add(axWindowsMediaPlayer1);
+            Controls.Add(coinPicture);
             Controls.Add(rakhunokLabel);
             Controls.Add(backButton);
             Controls.Add(zakrytyButton);
@@ -141,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)Result).EndInit();
             ((System.ComponentModel.ISupportInitialize)backButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)zakrytyButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)coinPicture).EndInit();
             ResumeLayout(false);
         }
 
@@ -152,5 +167,6 @@
         public PictureBox Result;
         public PictureBox zakrytyButton;
         private Label rakhunokLabel;
+        private PictureBox coinPicture;
     }
 }

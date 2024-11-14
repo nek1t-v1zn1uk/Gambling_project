@@ -31,6 +31,8 @@ namespace Gambling
                 f.Cancel();
             else if (cont is SlotyUserControl s)
                 s.Cancel();
+            else if (cont is KostyUserControl k)
+                k.Cancel();
             MainPanel.Controls.Remove(cont);
             cont.Dispose();
             cont = null;

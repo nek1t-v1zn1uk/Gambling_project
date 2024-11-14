@@ -20,6 +20,7 @@ namespace Gambling
         private int dice1Value, dice2Value, sum = 7, sumValue, stavka;
         private string[] videoPath = new string[6];
         Random random = new Random();
+        private bool canSpin = true;
 
         private static readonly double[,] coefficient = { 
             {0, 1.03}, //2
@@ -111,6 +112,9 @@ namespace Gambling
 
             await Task.Delay(3500);
 
+            if (canSpin == false)
+                return;
+
             Func<int, Image> getDice = (v) =>
             {
                 switch (v)
@@ -148,6 +152,10 @@ namespace Gambling
             playButton.Image = Properties.Resources.kinuti; 
         }
 
+        public void Cancel()
+        {
+            canSpin = false;
+        }
         private void moreButton_MouseClick(object sender, MouseEventArgs e)
         {
             if (sum != 12)

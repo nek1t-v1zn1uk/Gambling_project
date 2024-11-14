@@ -27,6 +27,8 @@ namespace Gambling
 
         private Image wheelImage, frame;
 
+        private bool canSpin = true;
+
         public static readonly Dictionary<int, int> dict = new Dictionary<int, int>
         {
             {0, 1},
@@ -46,8 +48,6 @@ namespace Gambling
             {14, 2},
             {15, 0}
         };
-
-        private bool canSpin = true;
 
         public FortunkaUserControl(Size size, MainForm form)
         {
@@ -83,44 +83,52 @@ namespace Gambling
             isSpin = true;
             winPos = random.Next(0, 15);
             baseAngle = 360 - (winPos * 360 / 16 + 6 - random.Next(0, 20));
-            baseAngle = baseAngle % 360;  // Корекція кута, щоб він не перевищував 360
+            baseAngle = baseAngle % 360;
             double maxSpeed = 20;
             double acceleration = 0.5;
-            double decelerationStartAngle = baseAngle - 60; // Почнемо гальмувати за 60 градусів до базового кута
-            int fullRotations = 3; // Кількість повних обертів перед зупинкою
-            angle = 0;
-            speed = 1;  // Початкова швидкість
+            double difference = 100;
+            int fullRotations = 3;
+
+            speed = 1; 
+
+            bool isGood = false;
 
             Bitmap bufferImage = new Bitmap(wheel.Width, wheel.Height);
-
+            label1.Text = "    " + baseAngle;
             using (Graphics gBuffer = Graphics.FromImage(bufferImage))
             {
                 gBuffer.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
                 gBuffer.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
 
-                while (fullRotations > 0 || Math.Abs(angle - baseAngle) >= 1.5)
+                while (fullRotations > 0 || Math.Abs(angle - baseAngle) >= 1.5 || speed !=1)
                 {
-                    // Плавне прискорення до maxSpeed
+                    if (canSpin == false)
+                        return;
+
+
+                    if (fullRotations <= 0 && speed > 1 && (baseAngle - angle < difference ||
+                        baseAngle < difference && (angle > 360 - difference + baseAngle || angle < baseAngle)))
+                        isGood = true;
+
+
                     if (fullRotations > 0 && speed < maxSpeed)
                     {
                         speed += acceleration;
                     }
-                    // Плавне зменшення швидкості при наближенні до цільового кута
-                    else if (fullRotations <= 0 && speed > 1 && angle >= decelerationStartAngle)
+                    else if (fullRotations <= 0 && speed > 1 && isGood)
                     {
                         speed -= acceleration;
-                        if (speed < 1) speed = 1; // Обмеження мінімальної швидкості
+                        if (speed < 1) speed = 1;
                     }
 
-                    // Оновлюємо кут повороту
                     angle += speed;
+                    label2.Text = angle + "  " + speed;
                     if (angle >= 360)
                     {
                         angle -= 360;
-                        fullRotations--; // Зменшуємо кількість обертів
+                        fullRotations--;
                     }
 
-                    // Малюємо обертання в bufferImage
                     gBuffer.Clear(Color.Transparent);
                     gBuffer.TranslateTransform(bufferImage.Width / 2f, bufferImage.Height / 2f);
                     gBuffer.RotateTransform((float)angle);
@@ -129,14 +137,13 @@ namespace Gambling
                     gBuffer.ResetTransform();
                     gBuffer.DrawImage(frame, 0, 0, wheel.Width, wheel.Height);
 
-                    // Оновлюємо зображення лише один раз на кожен цикл
                     wheel.Image = (Bitmap)bufferImage.Clone();
                     wheel.Invalidate();
-                    await Task.Delay(16); // Контроль FPS (приблизно 60 кадрів на секунду)
+                    await Task.Delay(16);
                 }
             }
 
-            mainForm.ShowResult(dict[winPos]); // Показуємо результат
+            mainForm.ShowResult(dict[winPos]);
             isSpin = false;
             krutytyButton.Image = Properties.Resources.krutity; // Відновлюємо кнопку
         }

@@ -79,7 +79,7 @@ namespace Gambling
         }
         private void AddTransparentTextBox()
         {
-            
+
             transparentTextBox = new TransparentTextBox
             {
                 Text = "",
@@ -89,6 +89,7 @@ namespace Gambling
                 Font = new Font(privateFonts.Families[0], 20.0F, FontStyle.Regular),
                 ForeColor = Color.FromArgb(46, 46, 46),
                 BackColor = ColorTranslator.FromHtml("#f7f7f7"),
+                MaxLength = 10
             };
 
             
@@ -105,7 +106,7 @@ namespace Gambling
         {
             if (transparentTextBox.Text != "")
             {
-                mainForm.isRakhunok += int.Parse(transparentTextBox.Text);
+                mainForm.ChangeRakhunok(double.Parse(transparentTextBox.Text));
                 transparentTextBox.Text = "";
             }
             else return;

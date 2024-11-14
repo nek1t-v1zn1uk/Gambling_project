@@ -7,7 +7,7 @@ namespace Gambling
         public bool isMusic = true;
         public bool isSound = true;
 
-        public int isRakhunok =0;
+        public double rakhunok = 0;
 
         public int countToJecpot;
 
@@ -15,12 +15,16 @@ namespace Gambling
         private Brush resultBrush;
         private Size bannerSize;
         private Point bannerLocation;
+
+        Image baseBackIm;
         public MainForm()
         {
             InitializeComponent();
 
             WindowState = FormWindowState.Maximized;
             DoubleBuffered = true;
+
+            ChangeRakhunok(0);
         }
 
         public void setUserControl(UserControl control)
@@ -40,10 +44,13 @@ namespace Gambling
             MainPanel.ResumeLayout();
             backButton.Visible = true;
             MainPanel.Controls[1].Focus();
+            BackgroundImage = MainPanel.Controls[1].BackgroundImage;
         }
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
+            baseBackIm = BackgroundImage;
+
             backButton.Location = new Point(35, 35);
             backButton.Size = new Size(75, 75);
 
@@ -62,6 +69,11 @@ namespace Gambling
 
             resultFont = new Font("Days One", (int)30);
             resultBrush = new SolidBrush(Color.Black);
+
+            rakhunokLabel.Size = new Size(700, 75);
+            rakhunokLabel.Location = new Point(Width-rakhunokLabel.Width-rakhunokLabel.Height, 
+                (int)(rakhunokLabel.Height / 2));
+
 
             MainPanel.Location = new Point(0, 0);
             MainPanel.Size = ClientSize;
@@ -111,8 +123,22 @@ namespace Gambling
             }
         }
 
+        public bool ChangeRakhunok(double s)
+        {
+            rakhunok += Math.Round(s, 2);
+            rakhunok = Math.Round(rakhunok, 2);
+            if (rakhunok<0)
+                return false;
+
+            if (rakhunok > 999999999999999)
+                rakhunok = 999999999999999;
+            rakhunokLabel.Text = rakhunok.ToString();
+            return true;
+        }
+
         public void ShowResult(double sum)
         {
+            sum = Math.Round(sum, 2);
             Image im = CaptureScreen();
             string text = "Ваш виграш: " + sum;
             using (Graphics g = Graphics.FromImage(im))
@@ -122,6 +148,8 @@ namespace Gambling
                 g.DrawString(text, resultFont, resultBrush, new Point((int)(bannerLocation.X + (bannerSize.Width - textSize.ToSize().Width) / 2), (int)(bannerLocation.Y + (bannerSize.Height - textSize.Height) / 2.4)));
             }
             Result.Image = im;
+            baseBackIm = BackgroundImage;
+            rakhunokLabel.Visible = false;
             BackgroundImage = im;
             Result.Visible = true;
             zakrytyButton.Visible = true;
@@ -159,6 +187,8 @@ namespace Gambling
         {
             zakrytyButton.Visible = false;
             Result.Visible = false;
+            BackgroundImage = baseBackIm;
+            rakhunokLabel.Visible = true; 
         }
 
         private void zakrytyButton_MouseDown(object sender, MouseEventArgs e)

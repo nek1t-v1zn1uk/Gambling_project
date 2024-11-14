@@ -34,6 +34,7 @@
             Result = new PictureBox();
             backButton = new PictureBox();
             zakrytyButton = new PictureBox();
+            rakhunokLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Result).BeginInit();
@@ -105,6 +106,17 @@
             zakrytyButton.MouseLeave += zakrytyButton_MouseLeave;
             zakrytyButton.MouseUp += zakrytyButton_MouseUp;
             // 
+            // rakhunokLabel
+            // 
+            rakhunokLabel.BackColor = Color.Transparent;
+            rakhunokLabel.Font = new Font("Days One", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            rakhunokLabel.Location = new Point(390, 21);
+            rakhunokLabel.Name = "rakhunokLabel";
+            rakhunokLabel.Size = new Size(696, 75);
+            rakhunokLabel.TabIndex = 9;
+            rakhunokLabel.Text = "0000";
+            rakhunokLabel.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -112,6 +124,7 @@
             BackgroundImage = Properties.Resources.background;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1114, 500);
+            Controls.Add(rakhunokLabel);
             Controls.Add(backButton);
             Controls.Add(zakrytyButton);
             Controls.Add(axWindowsMediaPlayer1);
@@ -138,5 +151,6 @@
         public Panel MainPanel;
         public PictureBox Result;
         public PictureBox zakrytyButton;
+        private Label rakhunokLabel;
     }
 }
